@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -46,13 +46,50 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">BEPAS</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sites <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/">My Sites List</a></li>
+                                <li><a runat="server" href="~/">Site General Info</a></li>
+                                <li><a runat="server" href="~/">Exterior Lighting</a></li>
+                                <li><a runat="server" href="~/">Utility Billing (Electricity)</a></li>
+                                <li><a runat="server" href="~/">Utility Billing (Gas)</a></li>
+                                <li><a runat="server" href="~/">Utility Billing (Solar)</a></li>
+                                <li><a runat="server" href="~/">Occupancy Info</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buildings <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/">General Info</a></li>
+                                <li><a runat="server" href="~/">Exterior Lighting</a></li>
+                                <li><a runat="server" href="~/">Roof &amp Exhaust Fans</a></li>
+                                <li><a runat="server" href="~/">HVAC Inventory</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rooms <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/">General Info</a></li>
+                                <li><a runat="server" href="~/">Interior Lighting</a></li>
+                                <li><a runat="server" href="~/">Thermostats</a></li>
+                                <li><a runat="server" href="~/">Windows – Envelope Fenestration</a></li>
+                                <li><a runat="server" href="~/">Doors – Envelope Fenestration</a></li>
+                                <li><a runat="server" href="~/">Plugloads</a></li>
+                                <li><a runat="server" href="~/">Skylights – Envelope Fenestration</a></li>
+                                <li><a runat="server" href="~/">Domestic Hot Water Form</a></li>
+                                <li><a runat="server" href="~/">Specialty Kitchen Equipment</a></li>
+                                <li><a runat="server" href="~/">Misc. Inventory</a></li>
+                            </ul>
+                        </li>
+                        <li><a runat="server" href="~/">Runtime Schedulers</a></li>
+                        <li><a runat="server" href="~/">Swimming Pools</a></li>
+                        <li><a runat="server" href="~/">Report</a></li>
+                        <li><a runat="server" href="~/">Temperature</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -78,7 +115,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; EEC - Energy Efficiency Center <%: DateTime.Now.Year %></p>
             </footer>
         </div>
     </form>
