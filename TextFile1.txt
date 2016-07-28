@@ -1,0 +1,30 @@
+
+    <fieldset class="form-group">
+        <asp:Label ID="Label1" runat="server" class="col-md-3 control-label" Text="firstttt"></asp:Label>
+        <asp:TextBox ID="TextBox1" class="form-control input-md-3" runat="server"></asp:TextBox>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <asp:Label ID="Label2" runat="server" class="col-md-3 control-label" Text="Anotha One"></asp:Label>
+        <asp:TextBox ID="TextBox2" class="form-control input-md-3" runat="server"></asp:TextBox>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <asp:Label ID="Label3" runat="server" class="col-md-3 control-label" Text="And Anotha One"></asp:Label>
+        <asp:TextBox ID="TextBox3" class="form-control input-md-3" runat="server"></asp:TextBox>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <asp:Label ID="Label4" CssClass="col-md-3 control-label" runat="server" Text="DROPPPP it"></asp:Label>
+        <div class="col-md-3">
+            <asp:DropDownList ID="DropDownList1" class="form-control" runat="server">
+                <asp:ListItem>one</asp:ListItem>
+                <asp:ListItem>anotha one</asp:ListItem>
+                <asp:ListItem>and anotha one</asp:ListItem>
+                <asp:ListItem>and anotha one</asp:ListItem>
+                <asp:ListItem>last one</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-default col-md-offset-3">Submit</button>

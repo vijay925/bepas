@@ -1,13 +1,117 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="buildingExteriorLighting.aspx.cs" Inherits="bepas.WebForm1" %>
 
 <asp:Content ID="buildingExteriorLighting" ContentPlaceHolderID="MainContent" runat="server">
+    
 
     <div class="container">
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="well">
             <h4>Building Exterior Lighting</h4>
             <fieldset>
 
-                <!-- Select Basic -->
+                <!-- site id/name -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Site ID / Name *</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" placeholder="Site ID"></div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Site Name"></div>
+                    <!-- site list button -->
+                    <div class="col-md-3">
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-md" data-toggle="modal" 
+                            data-target="#siteListModal">Site List</button>
+                    </div>
+                   
+                    <!-- Modal -->
+                    <div id="siteListModal" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Site List</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Some text in the modal.</p>
+                            <table id="sites-list" class="table table-striped"> 
+<thead>
+<tr>
+  <th>Site ID</th>
+  <th>Site Name</th>
+  <th>Survey Date</th>
+  <th>Contact Name</th>
+  <th>City</th>
+  <th>State</th>
+  <th>Select</th>
+</tr>
+</thead>
+<tbody> 
+<tr>
+  <td>1</td>
+  <td>Site Name 1</td>
+  <td>03/11/2015</td>
+  <td>Michael Rock</td>
+  <td>Davis</td>
+  <td>CA</td>
+  <td><input class="select-button" type="button"  value="Select"></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>Site Name 2</td>
+  <td>04/20/2015</td>
+  <td>Thomas Butler</td>
+  <td>San Francisco</td>
+  <td>CA</td>
+  <td><input class="select-button" type="button"  value="Select"></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>Site Name 3</td>
+  <td>04/23/2015</td>
+  <td>Darren Brown</td>
+  <td>San Francisco</td>
+  <td>CA</td>
+  <td><input class="select-button" type="button"  value="Select"></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Site Name 4</td>
+  <td>06/15/2015</td>
+  <td>Tony Green</td>
+  <td>Davis</td>
+  <td>CA</td>
+  <td><input class="select-button" type="button" value="Select"></td>
+</tr>
+</tbody> 
+</table>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                </div>
+
+                 <!-- building id/name -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Building ID / Name *</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" placeholder="Building ID"></div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Building Name"></div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-info">Building List</button>
+                    </div>
+                </div>
+                <!-- fixture use -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="fixtureUse">Fixture Use? *</label>
                     <div class="col-md-4">
@@ -19,11 +123,11 @@
                     </div>
                 </div>
 
-                <!-- Text input-->
+                <!-- num of fixtures -->
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="textinput">Number of Fixtures *</label>
-                    <div class="col-sm-4">
-                        <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-sm">
+                    <label class="col-md-4 control-label" for="textinput">Number of Fixtures *</label>
+                    <div class="col-md-4">
+                        <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
                     </div>
                 </div>
 
@@ -160,10 +264,13 @@
 
                 <!-- Button (Double) -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="save"></label>
-                    <div class="col-md-8">
-                        <button id="save" name="save" class="btn btn-success">Save</button>
-                        <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
+                    <label class="col-md-5 col-sm-4 col-xs-4 control-label" for="save"></label>
+                    <div class="row">       
+                          <button id="cancel" name="cancel" class="btn btn-danger">
+                                <i class="fa fa-trash"></i>&nbsp Cancel</button>
+
+                          <button id="save" name="save" class="btn btn-primary">
+                                <i class="fa fa-paper-plane"></i>&nbsp Save</button>                    
                     </div>
                 </div>
 
@@ -171,5 +278,7 @@
 
         </div>
     </div>
+
+
 
 </asp:Content>
