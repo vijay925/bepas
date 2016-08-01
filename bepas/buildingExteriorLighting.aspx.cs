@@ -53,6 +53,9 @@ namespace bepas
         }
         */
 
+
+        
+
         private void LoadDropdownItems()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
@@ -135,7 +138,58 @@ namespace bepas
             ddlFixtureControl.Items.Insert(0, new ListItem("Please Select", "-1"));
             
         } //LoadDropdownItems()
+
+        protected void saveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        
+        protected void buildingId_TextChanged(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
+            DataSet dataSet = new DataSet();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.CommandText = "spLoadBuildingExLighting";
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Connection = connection;
+                    connection.Open();
+                    
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        command.Parameters.AddWithValue("@buildingUid", 1);
+                        adapter.Fill(dataSet);
+                    } //using SqlDataAdapter
+                }//using SqlCommand
+            } //using SqlConnection 
+             
+            if(dataSet.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = dataSet.Tables[0].Rows[0];
+                ddlFixtureUse.SelectedValue = dr["fixtureId"].ToString();
+                numberOfFixtures.Text = dr["numberOfFixtures"].ToString();
+                ddlMountingType.SelectedValue = dr["mountingTypeId"].ToString();
+                lampsPerFixture.Text = dr["lampsPerFixture"].ToString();
+                ddlLampType.SelectedValue = dr["lampTypeId"].ToString();
+                lampWattage.Text = dr["lampWattage"].ToString();
+                baseType.Text = dr["lampBaseType"].ToString();
+                ddlTubeLength.SelectedValue = dr["tubeLengthId"].ToString();
+                int radioValue = Convert.ToInt32(dr["straightOrCurvedId"]);
+                if (radioValue == 1)
+                    radioStraight.Checked = true;
+                else if(radioValue == 2)
+                    radioCurved.Checked = true;
+                ddlTubeDiameter.SelectedValue = dr["tubeDiameterId"].ToString();
+                ddlBallastType.SelectedValue = dr["ballastTypeId"].ToString();
+                ballastsPerFixture.Text = dr["ballastsPerFixture"].ToString();
+                ddlFixtureControl.SelectedValue = dr["fixtureControlId"].ToString();
+                notes.Value = dr["notes"].ToString();
+            }
+    } //buildingId_TextChanged()
     } //Webform
-
-
-}
+} //namespace bepas

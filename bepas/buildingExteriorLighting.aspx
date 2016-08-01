@@ -109,7 +109,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Building ID / Name *</label>
                     <div class="col-md-2">
-                        <asp:TextBox ID="buildingId" class="form-control" runat="server" placeholder="Building ID" AutoPostBack="True"></asp:TextBox>
+                        <asp:TextBox ID="buildingId" class="form-control" runat="server" placeholder="Building ID" OnTextChanged="buildingId_TextChanged" AutoPostBack="true"></asp:TextBox>
                     </div>
                     <div class="col-md-3">
                         <asp:TextBox ID="buildingName" class="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
@@ -225,9 +225,9 @@
 
                 <!-- Textarea -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="textarea">Exterior Lighting Notes</label>
+                    <label class="col-md-4 control-label" for="notes">Exterior Lighting Notes</label>
                     <div class="col-md-4">
-                        <textarea class="form-control" id="textarea" name="textarea"></textarea>
+                        <textarea  id="notes" name="notes" class="form-control" runat="server"></textarea>
                     </div>
                 </div>
 
@@ -243,7 +243,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="loginButtons"></label>
                     <div class="col-md-8">
-                        <asp:Button ID="saveButton" name="saveButton" class="btn btn-success" runat="server" Text="Save" />
+                        <asp:Button ID="saveButton" name="saveButton" class="btn btn-success" runat="server" Text="Save" OnClick="saveButton_Click" />
                         <asp:Button ID="cancelButton" name="cancelButton" class="btn btn-danger" runat="server" Text="Cancel" />
                     </div>
                 </div>
