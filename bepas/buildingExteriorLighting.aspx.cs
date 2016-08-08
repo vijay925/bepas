@@ -225,5 +225,9 @@ namespace bepas
             } //using SqlCommand
         } //GetDataUsingSp()
 
+        protected void cancelButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~");
+        }
     } //Webform
 } //namespace bepas

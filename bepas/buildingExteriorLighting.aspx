@@ -244,7 +244,7 @@
                     <label class="col-md-4 control-label" for="loginButtons"></label>
                     <div class="col-md-8">
                         <asp:Button ID="saveButton" name="saveButton" class="btn btn-success" runat="server" Text="Save"/>
-                        <asp:Button ID="cancelButton" name="cancelButton" class="btn btn-danger" runat="server" Text="Cancel" />
+                        <asp:Button ID="cancelButton" name="cancelButton" class="btn btn-danger" runat="server" Text="Cancel" OnClick="cancelButton_Click" />
                     </div>
                 </div>
 
