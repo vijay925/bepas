@@ -67,7 +67,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buildings <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/">General Info</a></li>
-                                <li><a runat="server" href="~/">Exterior Lighting</a></li>
+                                <li><a runat="server" href="buildingExteriorLighting">Exterior Lighting</a></li>
                                 <li><a runat="server" href="~/">Roof &amp Exhaust Fans</a></li>
                                 <li><a runat="server" href="~/">HVAC Inventory</a></li>
                             </ul>

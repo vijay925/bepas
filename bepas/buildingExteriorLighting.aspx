@@ -4,10 +4,6 @@
 
 
     <div class="container">
-        <br />
-        <br />
-        <br />
-        <br />
         <div class="well">
             <h4>Building Exterior Lighting</h4>
             <fieldset>
@@ -16,7 +12,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Site ID / Name *</label>
                     <div class="col-md-2">
-                        <asp:TextBox ID="siteId" class="form-control" runat="server" placeholder="Site ID"></asp:TextBox>
+                        <asp:TextBox ID="siteId" class="form-control" runat="server" placeholder="Site ID" readonly="true"></asp:TextBox>
                     </div>
                     <div class="col-md-3">
                         <asp:TextBox ID="siteName" class="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
@@ -28,75 +24,37 @@
                             data-target="#siteListModal">
                             Site List</button>
                     </div>
-
                     <!-- Modal -->
                     <div id="siteListModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-lg">
 
                             <!-- Modal content-->
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Site List</h4>
+                                    <h3 class="modal-title">Sites List</h3>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Some text in the modal.</p>
-                                    <table id="sites-list" class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Site ID</th>
-                                                <th>Site Name</th>
-                                                <th>Survey Date</th>
-                                                <th>Contact Name</th>
-                                                <th>City</th>
-                                                <th>State</th>
-                                                <th>Select</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Site Name 1</td>
-                                                <td>03/11/2015</td>
-                                                <td>Michael Rock</td>
-                                                <td>Davis</td>
-                                                <td>CA</td>
-                                                <td>
-                                                    <input class="select-button" type="button" value="Select"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Site Name 2</td>
-                                                <td>04/20/2015</td>
-                                                <td>Thomas Butler</td>
-                                                <td>San Francisco</td>
-                                                <td>CA</td>
-                                                <td>
-                                                    <input class="select-button" type="button" value="Select"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Site Name 3</td>
-                                                <td>04/23/2015</td>
-                                                <td>Darren Brown</td>
-                                                <td>San Francisco</td>
-                                                <td>CA</td>
-                                                <td>
-                                                    <input class="select-button" type="button" value="Select"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Site Name 4</td>
-                                                <td>06/15/2015</td>
-                                                <td>Tony Green</td>
-                                                <td>Davis</td>
-                                                <td>CA</td>
-                                                <td>
-                                                    <input class="select-button" type="button" value="Select"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" CssClass="table table-striped table-hover"
+                                        GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
+                                        <Columns>
+                                            <asp:BoundField DataField="siteIdByUser" HeaderText="Site ID" HeaderStyle-HorizontalAlign="Center"/>
+                                            <asp:BoundField DataField="siteName" HeaderText="Site Name" />
+                                            <asp:BoundField DataField="surveyDate" HeaderText="Survey Date" />
+                                            <asp:BoundField DataField="contactName" HeaderText="Contact Name" />
+                                            <asp:BoundField DataField="city" HeaderText="City" />
+                                            <asp:BoundField DataField="stateText" HeaderText="State"/>
+                                            <asp:TemplateField ShowHeader="False">
+                                                <ItemTemplate>
+                                                    <asp:Button ID="siteSelectButton" runat="server" CausesValidation="false" CommandName="SelectSite"
+                                                        Text="Select" CommandArgument='<%#Eval("uid")+";"+Eval("siteIdByUser")+";"+Eval("siteName")%>' />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                        <RowStyle CssClass="cursor-pointer" />
+                                    </asp:GridView>
                                 </div>
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
@@ -109,15 +67,57 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Building ID / Name *</label>
                     <div class="col-md-2">
-                        <asp:TextBox ID="buildingId" class="form-control" runat="server" placeholder="Building ID" OnTextChanged="buildingId_TextChanged" AutoPostBack="true"></asp:TextBox>
+                        <asp:TextBox ID="buildingId" class="form-control" runat="server" placeholder="Building ID" readonly="true"></asp:TextBox>
                     </div>
                     <div class="col-md-3">
                         <asp:TextBox ID="buildingName" class="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
                     </div>
                     <div class="col-md-3">
-                        <button type="submit" class="btn btn-info">Building List</button>
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                            data-target="#buildingListModal">
+                            Building List</button>
+                    </div>
+
+                    <!-- Modal -->
+                    <div id="buildingListModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h3 class="modal-title">Building List</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <asp:GridView ID="gvBuildingList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                                        GridLines="None" AutoGenerateColumns="false" OnRowCommand="gvBuildingListOnRowCommandSelect" runat="server">
+                                        <Columns>
+                                            <asp:BoundField DataField="buildingIdByUser" HeaderText="Building ID" />
+                                            <asp:BoundField DataField="buildingName" HeaderText="Building Name" />
+                                            <asp:BoundField DataField="yearBuilt" HeaderText="Year Built" />
+                                            <asp:BoundField DataField="buildingEndUseText" HeaderText="End Use" />
+                                            <asp:BoundField DataField="boxedShapeText" HeaderText="Boxed Shape" />
+                                            <asp:BoundField DataField="numberOfFloors" HeaderText="# of Floors" />
+                                            <asp:TemplateField ShowHeader="False">
+                                                <ItemTemplate>
+                                                    <asp:Button ID="buildingSelectButton" runat="server" CausesValidation="false" CommandName="SelectBuilding"
+                                                        Text="Select" CommandArgument='<%#Eval("uid")+";"+Eval("buildingIdByUser")+";"+Eval("buildingName")%>' />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                        <RowStyle CssClass="cursor-pointer" />
+                                    </asp:GridView>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <!-- fixture use -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="ddlFixtureUse">Fixture Use? *</label>
@@ -227,7 +227,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="notes">Exterior Lighting Notes</label>
                     <div class="col-md-4">
-                        <textarea  id="notes" name="notes" class="form-control" runat="server"></textarea>
+                        <textarea id="notes" name="notes" class="form-control" runat="server"></textarea>
                     </div>
                 </div>
 
@@ -243,7 +243,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="loginButtons"></label>
                     <div class="col-md-8">
-                        <asp:Button ID="saveButton" name="saveButton" class="btn btn-success" runat="server" Text="Save" OnClick="saveButton_Click" />
+                        <asp:Button ID="saveButton" name="saveButton" class="btn btn-success" runat="server" Text="Save"/>
                         <asp:Button ID="cancelButton" name="cancelButton" class="btn btn-danger" runat="server" Text="Cancel" />
                     </div>
                 </div>

@@ -17,44 +17,11 @@ namespace bepas
             if (!this.IsPostBack)
             {
                 LoadDropdownItems();
+                LoadSiteList();
 
             } //if
 
         } //Page_Load()
-
-        /*
-        private void OldLoadDropdownItems()
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.CommandText = "spLoadDropdownItems";
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Connection = connection;
-
-                    connection.Open();
-                    command.Parameters.AddWithValue("@uid", 36);
-                    ddlFixtureUse.DataSource = command.ExecuteReader();
-                    ddlFixtureUse.DataTextField = "value";
-                    ddlFixtureUse.DataValueField = "uid";
-                    ddlFixtureUse.DataBind();
-
-                    command.Parameters.AddWithValue("@uid", 37);
-                    ddlMountingType.DataSource = command.ExecuteReader();
-                    ddlMountingType.DataTextField = "value";
-                    ddlMountingType.DataValueField = "uid";
-                    ddlMountingType.DataBind();
-                } //using SqlCommand
-            } //using SqlConnection
-
-            ddlFixtureUse.Items.Insert(0, new ListItem("Please Select", "-1"));
-        }
-        */
-
-
-        
 
         private void LoadDropdownItems()
         {
@@ -66,7 +33,7 @@ namespace bepas
                 command.CommandText = "spLoadDropdownItems";
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Connection = connection;
-                
+
                 connection.Open();
 
                 using (DataSet dataSet = new DataSet())
@@ -136,39 +103,61 @@ namespace bepas
             ddlTubeDiameter.Items.Insert(0, new ListItem("Please Select", "-1"));
             ddlBallastType.Items.Insert(0, new ListItem("Please Select", "-1"));
             ddlFixtureControl.Items.Insert(0, new ListItem("Please Select", "-1"));
-            
         } //LoadDropdownItems()
 
-        protected void saveButton_Click(object sender, EventArgs e)
+        private void LoadSiteList()
         {
+            DataSet dataSet = GetDataUsingSp("spLoadSites", null, null);
+            gvSiteList.DataSource = dataSet;
+            gvSiteList.DataBind();
+            gvSiteList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadSiteList()
 
+        protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
+        {
+            buildingId.Text = String.Empty;
+            buildingName.Text = String.Empty;
+
+            string[] argument = new string[3];
+            argument = e.CommandArgument.ToString().Split(';');
+
+            string siteUidLocal = argument[0];
+            string siteIdByUserLocal = argument[1];
+            string siteNameLocal = argument[2];
+
+            siteId.Text = siteIdByUserLocal;
+            siteName.Text = siteNameLocal;
+            LoadBuildingList(Convert.ToInt32(siteUidLocal));
         }
 
-
-
-        
-        protected void buildingId_TextChanged(object sender, EventArgs e)
+        private void LoadBuildingList(int siteUid)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
-            DataSet dataSet = new DataSet();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.CommandText = "spLoadBuildingExLighting";
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Connection = connection;
-                    connection.Open();
-                    
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        command.Parameters.AddWithValue("@buildingUid", 1);
-                        adapter.Fill(dataSet);
-                    } //using SqlDataAdapter
-                }//using SqlCommand
-            } //using SqlConnection 
-             
-            if(dataSet.Tables[0].Rows.Count > 0)
+            DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
+            gvBuildingList.DataSource = dataSet;
+            gvBuildingList.DataBind();
+            gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadBuildingList()
+
+        protected void gvBuildingListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
+        {
+            string[] argument = new string[3];
+            argument = e.CommandArgument.ToString().Split(';');
+
+            string buildingUidLocal = argument[0];
+            string buildingIdByUserLocal = argument[1];
+            string buildingNameLocal = argument[2];
+
+            buildingId.Text = buildingIdByUserLocal;
+            buildingName.Text = buildingNameLocal;
+            Response.Write(buildingUidLocal);
+            LoadInputFields(Convert.ToInt32(buildingUidLocal));
+        }
+
+        private void LoadInputFields(int buildingUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadBuildingExLighting", "@buildingUid", buildingUid);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
             {
                 DataRow dr = dataSet.Tables[0].Rows[0];
                 ddlFixtureUse.SelectedValue = dr["fixtureId"].ToString();
@@ -182,7 +171,7 @@ namespace bepas
                 int radioValue = Convert.ToInt32(dr["straightOrCurvedId"]);
                 if (radioValue == 1)
                     radioStraight.Checked = true;
-                else if(radioValue == 2)
+                else if (radioValue == 2)
                     radioCurved.Checked = true;
                 ddlTubeDiameter.SelectedValue = dr["tubeDiameterId"].ToString();
                 ddlBallastType.SelectedValue = dr["ballastTypeId"].ToString();
@@ -190,6 +179,51 @@ namespace bepas
                 ddlFixtureControl.SelectedValue = dr["fixtureControlId"].ToString();
                 notes.Value = dr["notes"].ToString();
             }
-    } //buildingId_TextChanged()
+            else
+            {
+                ddlFixtureUse.SelectedValue = "-1";
+                numberOfFixtures.Text = String.Empty;
+                ddlMountingType.SelectedValue = "-1";
+                lampsPerFixture.Text = String.Empty;
+                ddlLampType.SelectedValue = "-1";
+                lampWattage.Text = String.Empty;
+                baseType.Text = String.Empty;
+                ddlTubeLength.SelectedValue = "-1";
+                radioStraight.Checked = false;
+                radioCurved.Checked = false;
+                ddlTubeDiameter.SelectedValue = "-1";
+                ddlBallastType.SelectedValue = "-1";
+                ballastsPerFixture.Text = String.Empty;
+                ddlFixtureControl.SelectedValue = "-1";
+                notes.Value = String.Empty;
+
+            }
+        } //LoadInputFields()
+
+        private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandText = spName;
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Connection = connection;
+
+                DataSet dataSet = new DataSet();
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    if (spParameter != null)
+                        command.Parameters.AddWithValue(spParameterName, (int)spParameter);
+                    connection.Open();
+                    adapter.Fill(dataSet);
+                } //using SqlDataAdapter
+                return dataSet;
+            } //using SqlCommand
+        } //GetDataUsingSp()
+
     } //Webform
 } //namespace bepas
