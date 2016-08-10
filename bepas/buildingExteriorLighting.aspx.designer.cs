@@ -139,22 +139,13 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.DropDownList ddlTubeLength;
         
         /// <summary>
-        /// radioStraight control.
+        /// radioListStraightCurved control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioStraight;
-        
-        /// <summary>
-        /// radioCurved control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioCurved;
+        protected global::System.Web.UI.WebControls.RadioButtonList radioListStraightCurved;
         
         /// <summary>
         /// ddlTubeDiameter control.

@@ -117,7 +117,8 @@ namespace bepas
         {
             buildingId.Text = String.Empty;
             buildingName.Text = String.Empty;
-
+            ClearInputFields();
+      
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
 
@@ -147,9 +148,9 @@ namespace bepas
             string buildingIdByUserLocal = argument[1];
             string buildingNameLocal = argument[2];
 
+            ViewState["buildingUid"] = buildingUidLocal;
             buildingId.Text = buildingIdByUserLocal;
             buildingName.Text = buildingNameLocal;
-            Response.Write(buildingUidLocal);
             LoadInputFields(Convert.ToInt32(buildingUidLocal));
         }
 
@@ -168,11 +169,7 @@ namespace bepas
                 lampWattage.Text = dr["lampWattage"].ToString();
                 baseType.Text = dr["lampBaseType"].ToString();
                 ddlTubeLength.SelectedValue = dr["tubeLengthId"].ToString();
-                int radioValue = Convert.ToInt32(dr["straightOrCurvedId"]);
-                if (radioValue == 1)
-                    radioStraight.Checked = true;
-                else if (radioValue == 2)
-                    radioCurved.Checked = true;
+                radioListStraightCurved.SelectedValue = dr["straightOrCurvedId"].ToString();
                 ddlTubeDiameter.SelectedValue = dr["tubeDiameterId"].ToString();
                 ddlBallastType.SelectedValue = dr["ballastTypeId"].ToString();
                 ballastsPerFixture.Text = dr["ballastsPerFixture"].ToString();
@@ -181,22 +178,7 @@ namespace bepas
             }
             else
             {
-                ddlFixtureUse.SelectedValue = "-1";
-                numberOfFixtures.Text = String.Empty;
-                ddlMountingType.SelectedValue = "-1";
-                lampsPerFixture.Text = String.Empty;
-                ddlLampType.SelectedValue = "-1";
-                lampWattage.Text = String.Empty;
-                baseType.Text = String.Empty;
-                ddlTubeLength.SelectedValue = "-1";
-                radioStraight.Checked = false;
-                radioCurved.Checked = false;
-                ddlTubeDiameter.SelectedValue = "-1";
-                ddlBallastType.SelectedValue = "-1";
-                ballastsPerFixture.Text = String.Empty;
-                ddlFixtureControl.SelectedValue = "-1";
-                notes.Value = String.Empty;
-
+                ClearInputFields();
             }
         } //LoadInputFields()
 
@@ -228,6 +210,73 @@ namespace bepas
         protected void cancelButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~");
+        }
+
+        protected void saveButton_Click(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+
+            using (SqlCommand command = new SqlCommand())
+            {
+                int UserUid = 1;
+                command.CommandText = "spInsertUpdateBuildingExLighting";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Connection = connection;
+                command.Parameters.AddWithValue("@buildingUid", Convert.ToInt32(ViewState["buildingUid"]));
+                command.Parameters.AddWithValue("@fixtureId", Convert.ToInt32(ddlFixtureUse.SelectedValue));
+                command.Parameters.AddWithValue("@fixtureText", ddlFixtureUse.SelectedItem.Text);
+                command.Parameters.AddWithValue("@numberOfFixtures", Convert.ToInt32(numberOfFixtures.Text));
+                command.Parameters.AddWithValue("@mountingTypeId", Convert.ToInt32(ddlMountingType.SelectedValue));
+                command.Parameters.AddWithValue("@mountingTypeText", ddlMountingType.SelectedItem.Text);
+                command.Parameters.AddWithValue("@lampsPerFixture", Convert.ToInt32(lampsPerFixture.Text));
+                command.Parameters.AddWithValue("@lampTypeId", Convert.ToInt32(ddlLampType.SelectedValue));
+                command.Parameters.AddWithValue("@lampTypeText", ddlLampType.SelectedItem.Text);
+                command.Parameters.AddWithValue("@lampWattage", Convert.ToInt32(lampWattage.Text));
+                command.Parameters.AddWithValue("@lampBaseType", baseType.Text);
+                command.Parameters.AddWithValue("@tubeLengthId", Convert.ToInt32(ddlTubeLength.SelectedValue));
+                command.Parameters.AddWithValue("@tubeLengthText", ddlTubeLength.SelectedItem.Text);
+                command.Parameters.AddWithValue("@straightOrCurvedId", Convert.ToInt32(radioListStraightCurved.SelectedValue));
+                command.Parameters.AddWithValue("@straightOrCurvedText", radioListStraightCurved.SelectedItem.Text);
+                command.Parameters.AddWithValue("@tubeDiameterId", Convert.ToInt32(ddlTubeDiameter.SelectedValue));
+                command.Parameters.AddWithValue("@tubeDiameterText", ddlTubeDiameter.SelectedItem.Text);
+                command.Parameters.AddWithValue("@ballastTypeId", Convert.ToInt32(ddlBallastType.SelectedValue));
+                command.Parameters.AddWithValue("@ballastTypeText", ddlBallastType.SelectedItem.Text);
+                command.Parameters.AddWithValue("@ballastsPerFixture", Convert.ToInt32(ballastsPerFixture.Text));
+                command.Parameters.AddWithValue("@fixtureControlId", Convert.ToInt32(ddlFixtureControl.SelectedValue));
+                command.Parameters.AddWithValue("@fixtureControlText", ddlFixtureControl.SelectedItem.Text);
+                //command.Parameters.AddWithValue("@fixturePhoto", DBNull.Value);
+                //command.Parameters.AddWithValue("@fixturePhotoFileName", DBNull.Value);
+                command.Parameters.AddWithValue("@notes", notes.InnerText);
+                command.Parameters.AddWithValue("@creatorId", UserUid);
+                command.Parameters.AddWithValue("@creatorName", DBNull.Value);
+                command.Parameters.AddWithValue("@creationTime", DBNull.Value);
+                command.Parameters.AddWithValue("@lastModifierId", UserUid);
+                command.Parameters.AddWithValue("@lastModifierName", DBNull.Value);
+                command.Parameters.AddWithValue("@lastModifiedTime", DBNull.Value);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        } //saveButton_Click()
+
+        private void ClearInputFields()
+        {
+            ddlFixtureUse.SelectedValue = "-1";
+            numberOfFixtures.Text = String.Empty;
+            ddlMountingType.SelectedValue = "-1";
+            lampsPerFixture.Text = String.Empty;
+            ddlLampType.SelectedValue = "-1";
+            lampWattage.Text = String.Empty;
+            baseType.Text = String.Empty;
+            ddlTubeLength.SelectedValue = "-1";
+            radioListStraightCurved.SelectedIndex = -1;
+            radioListStraightCurved.SelectedIndex = -1;
+            ddlTubeDiameter.SelectedValue = "-1";
+            ddlBallastType.SelectedValue = "-1";
+            ballastsPerFixture.Text = String.Empty;
+            ddlFixtureControl.SelectedValue = "-1";
+            notes.Value = String.Empty;
         }
     } //Webform
 } //namespace bepas

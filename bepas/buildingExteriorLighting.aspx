@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Site ID / Name *</label>
                     <div class="col-md-2">
-                        <asp:TextBox ID="siteId" class="form-control" runat="server" placeholder="Site ID" readonly="true"></asp:TextBox>
+                        <asp:TextBox ID="siteId" class="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
                     </div>
                     <div class="col-md-3">
                         <asp:TextBox ID="siteName" class="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
@@ -38,12 +38,12 @@
                                     <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" CssClass="table table-striped table-hover"
                                         GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
                                         <Columns>
-                                            <asp:BoundField DataField="siteIdByUser" HeaderText="Site ID" HeaderStyle-HorizontalAlign="Center"/>
+                                            <asp:BoundField DataField="siteIdByUser" HeaderText="Site ID" HeaderStyle-HorizontalAlign="Center" />
                                             <asp:BoundField DataField="siteName" HeaderText="Site Name" />
                                             <asp:BoundField DataField="surveyDate" HeaderText="Survey Date" />
                                             <asp:BoundField DataField="contactName" HeaderText="Contact Name" />
                                             <asp:BoundField DataField="city" HeaderText="City" />
-                                            <asp:BoundField DataField="stateText" HeaderText="State"/>
+                                            <asp:BoundField DataField="stateText" HeaderText="State" />
                                             <asp:TemplateField ShowHeader="False">
                                                 <ItemTemplate>
                                                     <asp:Button ID="siteSelectButton" runat="server" CausesValidation="false" CommandName="SelectSite"
@@ -67,7 +67,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Building ID / Name *</label>
                     <div class="col-md-2">
-                        <asp:TextBox ID="buildingId" class="form-control" runat="server" placeholder="Building ID" readonly="true"></asp:TextBox>
+                        <asp:TextBox ID="buildingId" class="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
                     </div>
                     <div class="col-md-3">
                         <asp:TextBox ID="buildingName" class="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
@@ -184,12 +184,16 @@
 
                 <!-- Multiple Radios (inline) -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="radios">Straight/Curved?</label>
+                    <label class="col-md-4 control-label" for="radioListStraightCurved">Straight/Curved?</label>
                     <div class="col-md-4">
-                        <asp:RadioButton ID="radioStraight" Text="Straight" value="1" class="radio-inline" runat="server" GroupName="straightCurvedRadios" />
-                        <asp:RadioButton ID="radioCurved" Text="Curved" value="2" class="radio-inline" runat="server" GroupName="straightCurvedRadios" />
+                        <asp:RadioButtonList ID="radioListStraightCurved" RepeatLayout="Flow" RepeatDirection="Horizontal" runat="server">
+                            <asp:ListItem class="radio-inline" Value="1" Text="Straight"></asp:ListItem>
+                            <asp:ListItem class="radio-inline" Value="2" Text="Curved"></asp:ListItem>
+                        </asp:RadioButtonList>
                     </div>
                 </div>
+
+
 
                 <!-- Select Basic -->
                 <div class="form-group">
@@ -243,11 +247,10 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="loginButtons"></label>
                     <div class="col-md-8">
-                        <asp:Button ID="saveButton" name="saveButton" class="btn btn-success" runat="server" Text="Save"/>
+                        <asp:Button ID="saveButton" name="saveButton" class="btn btn-success" runat="server" Text="Save" OnClick="saveButton_Click" />
                         <asp:Button ID="cancelButton" name="cancelButton" class="btn btn-danger" runat="server" Text="Cancel" OnClick="cancelButton_Click" />
                     </div>
                 </div>
-
             </fieldset>
 
         </div>
