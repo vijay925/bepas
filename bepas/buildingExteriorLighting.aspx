@@ -1,10 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="buildingExteriorLighting.aspx.cs" Inherits="bepas.WebForm1" %>
 
 <asp:Content ID="buildingExteriorLighting" ContentPlaceHolderID="MainContent" runat="server">
-
-
     <div class="container">
         <div class="well">
+            <asp:Panel ID="SuccessPanel" runat="server" class="alert alert-success alert-dismissable" Visible="False">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                <i class="fa-lg fa fa-bullhorn"></i>
+                <asp:Label ID="lblSuccess" runat="server" Text=""></asp:Label>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            </asp:Panel>
             <h4>Building Exterior Lighting</h4>
             <fieldset>
 
@@ -35,7 +39,7 @@
                                     <h3 class="modal-title">Sites List</h3>
                                 </div>
                                 <div class="modal-body">
-                                    <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" CssClass="table table-striped table-hover"
+                                    <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" class="table table-striped table-bordered nowrap" CellSpacing="0" Width="100%"
                                         GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
                                         <Columns>
                                             <asp:BoundField DataField="siteIdByUser" HeaderText="Site ID" HeaderStyle-HorizontalAlign="Center" />
@@ -255,7 +259,43 @@
 
         </div>
     </div>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
 
+
+    <script>
+        $(document).ready(function () {
+            $('#<%= gvSiteList.ClientID %>').DataTable({
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.modal({
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Details for ' + data[0] + ' ' + data[1];
+                            }
+                        }),
+                        renderer: $.fn.dataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        })
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script>
+
+        function HideLabel() {
+            $('#<%= SuccessPanel.ClientID %>').slideUp();
+        }
+        setTimeout("HideLabel();", 2000);
+
+    </script>
 
 
 </asp:Content>
+
+
+
