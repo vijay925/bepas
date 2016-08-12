@@ -216,7 +216,6 @@ namespace bepas
         {
             if(Page.IsValid) //checks validation again in case javascript disabled <-- havent tested this yet
             {
-
                 string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -260,6 +259,8 @@ namespace bepas
                     command.Parameters.AddWithValue("@lastModifiedTime", DBNull.Value);
                     connection.Open();
                     command.ExecuteNonQuery();
+                    //lblSuccess.Text = "Saved Successfully!";
+                    SuccessPanel.Visible = true;
                 }
             } // if(page valid)
            
