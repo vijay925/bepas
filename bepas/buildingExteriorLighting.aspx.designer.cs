@@ -31,6 +31,15 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.TextBox siteName;
         
         /// <summary>
+        /// reqSiteName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqSiteName;
+        
+        /// <summary>
         /// gvSiteList control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.TextBox buildingName;
         
         /// <summary>
+        /// reqBuildingName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqBuildingName;
+        
+        /// <summary>
         /// gvBuildingList control.
         /// </summary>
         /// <remarks>
@@ -76,6 +94,15 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.DropDownList ddlFixtureUse;
         
         /// <summary>
+        /// reqDdlFixtureUse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqDdlFixtureUse;
+        
+        /// <summary>
         /// numberOfFixtures control.
         /// </summary>
         /// <remarks>
@@ -83,6 +110,24 @@ namespace bepas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox numberOfFixtures;
+        
+        /// <summary>
+        /// reqNumberOfFixtures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqNumberOfFixtures;
+        
+        /// <summary>
+        /// reqIntNumberOfFixtures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reqIntNumberOfFixtures;
         
         /// <summary>
         /// ddlMountingType control.
@@ -94,6 +139,15 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.DropDownList ddlMountingType;
         
         /// <summary>
+        /// reqDdlMountingType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqDdlMountingType;
+        
+        /// <summary>
         /// lampsPerFixture control.
         /// </summary>
         /// <remarks>
@@ -101,6 +155,24 @@ namespace bepas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox lampsPerFixture;
+        
+        /// <summary>
+        /// reqLampsPerFixture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqLampsPerFixture;
+        
+        /// <summary>
+        /// reqIntLampsPerFixture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reqIntLampsPerFixture;
         
         /// <summary>
         /// ddlLampType control.
@@ -112,6 +184,15 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.DropDownList ddlLampType;
         
         /// <summary>
+        /// reqDdlLampType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqDdlLampType;
+        
+        /// <summary>
         /// lampWattage control.
         /// </summary>
         /// <remarks>
@@ -119,6 +200,24 @@ namespace bepas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox lampWattage;
+        
+        /// <summary>
+        /// reqLampWattage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqLampWattage;
+        
+        /// <summary>
+        /// reqNumLampWattage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator reqNumLampWattage;
         
         /// <summary>
         /// baseType control.
@@ -182,6 +281,15 @@ namespace bepas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFixtureControl;
+        
+        /// <summary>
+        /// reqDdlFixtureControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqDdlFixtureControl;
         
         /// <summary>
         /// notes control.

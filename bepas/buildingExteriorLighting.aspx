@@ -16,6 +16,12 @@
                     </div>
                     <div class="col-md-3">
                         <asp:TextBox ID="siteName" class="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
+                        <asp:RequiredFieldValidator 
+                              ID="reqSiteName" 
+                              ControlToValidate="siteName" 
+                              ErrorMessage="Entry required"
+                              runat="server">
+                      </asp:RequiredFieldValidator>  
                     </div>
                     <!-- site list button -->
                     <div class="col-md-3">
@@ -71,6 +77,12 @@
                     </div>
                     <div class="col-md-3">
                         <asp:TextBox ID="buildingName" class="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
+                        <asp:RequiredFieldValidator 
+                              ID="reqBuildingName" 
+                              ControlToValidate="buildingName" 
+                              ErrorMessage="Entry required"
+                              runat="server">
+                      </asp:RequiredFieldValidator>  
                     </div>
                     <div class="col-md-3">
                         <!-- Trigger the modal with a button -->
@@ -118,51 +130,115 @@
                     </div>
                 </div>
 
-                <!-- fixture use -->
+                <!-- fixture use --------------------------------------------------------->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="ddlFixtureUse">Fixture Use? *</label>
                     <div class="col-md-4">
                         <asp:DropDownList ID="ddlFixtureUse" runat="server" name="ddlFixtureUse" class="form-control" Style="width: auto"></asp:DropDownList>
+                        <asp:RequiredFieldValidator
+                            ID="reqDdlFixtureUse"
+                            ControlToValidate="ddlFixtureUse"
+                            InitialValue="-1"
+                            ErrorMessage="Selection required"
+                            runat="server">
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
 
                 <!-- num of fixtures -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="numberOfFixtures">Number of Fixtures *</label>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <asp:TextBox ID="numberOfFixtures" name="numberOfFixtures" class="form-control input-md" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator
+                            ID="reqNumberOfFixtures"
+                            ControlToValidate="numberOfFixtures"
+                            ErrorMessage="Entry required"
+                            runat="server">
+                        </asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator
+                            ID="reqIntNumberOfFixtures"
+                            ControlToValidate="numberOfFixtures"
+                            runat="server"
+                            ErrorMessage="Positive integers only"
+                            ValidationExpression="\d+">
+                        </asp:RegularExpressionValidator>
                     </div>
+
                 </div>
 
-                <!-- Select Basic -->
+                <!-- mounting type -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="ddlMountingType">Mounting Type *</label>
                     <div class="col-md-4">
                         <asp:DropDownList ID="ddlMountingType" runat="server" name="ddlMountingType" class="form-control" Style="width: auto"></asp:DropDownList>
+                        <asp:RequiredFieldValidator
+                            ID="reqDdlMountingType"
+                            ControlToValidate="ddlMountingType"
+                            InitialValue="-1"
+                            ErrorMessage="Selection required"
+                            runat="server">
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
 
-                <!-- Text input-->
+                <!-- lamps per fixture -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="lampsPerFixture">Number of Lamps per Fixture *</label>
                     <div class="col-md-4">
                         <asp:TextBox ID="lampsPerFixture" name="lampsPerFixture" class="form-control input-md" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator
+                            ID="reqLampsPerFixture"
+                            ControlToValidate="lampsPerFixture"
+                            ErrorMessage="Selection required"
+                            runat="server">
+                        </asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator
+                            ID="reqIntLampsPerFixture"
+                            ControlToValidate="lampsPerFixture"
+                            runat="server"
+                            ErrorMessage="Positive integers only"
+                            ValidationExpression="\d+">
+                        </asp:RegularExpressionValidator>
                     </div>
                 </div>
 
-                <!-- Select Basic -->
+                <!-- lamp type -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="ddlLampType">Lamp Type? *</label>
                     <div class="col-md-4">
                         <asp:DropDownList ID="ddlLampType" runat="server" name="ddlLampType" class="form-control" Style="width: auto"></asp:DropDownList>
+                        <asp:RequiredFieldValidator
+                            ID="reqDdlLampType"
+                            ControlToValidate="ddlLampType"
+                            InitialValue="-1"
+                            ErrorMessage="Selection required"
+                            runat="server">
+                        </asp:RequiredFieldValidator>
                     </div>
                 </div>
 
-                <!-- Text input-->
+                <!-- lamp watt-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="lampWattage">Lamp Wattage *</label>
                     <div class="col-md-4">
                         <asp:TextBox ID="lampWattage" name="lampWattage" class="form-control input-md" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator
+                            ID="reqLampWattage"
+                            ControlToValidate="lampWattage"
+                            ErrorMessage="Entry required"
+                            runat="server">
+                        </asp:RequiredFieldValidator>
+                        <asp:CompareValidator 
+                            ID="reqNumLampWattage" 
+                            runat="server" 
+                            ControlToValidate="lampWattage" 
+                            Type="Double"
+                            Operator="DataTypeCheck" 
+                            ErrorMessage="Numbers only">
+
+                        </asp:CompareValidator>
+
                     </div>
                 </div>
 
@@ -224,6 +300,14 @@
                     <label class="col-md-4 control-label" for="ddlFixtureControl">Fixture Control *</label>
                     <div class="col-md-4">
                         <asp:DropDownList ID="ddlFixtureControl" runat="server" name="ddlFixtureControl" class="form-control" Style="width: auto"></asp:DropDownList>
+                        <asp:RequiredFieldValidator 
+                                ID="reqDdlFixtureControl" 
+                                ControlToValidate="ddlFixtureControl"
+                                InitialValue="-1"  
+                                ErrorMessage="Selection required"
+                                runat="server">
+                        </asp:RequiredFieldValidator>
+
                     </div>
                 </div>
 
@@ -255,7 +339,5 @@
 
         </div>
     </div>
-
-
 
 </asp:Content>
