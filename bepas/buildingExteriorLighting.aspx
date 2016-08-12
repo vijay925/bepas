@@ -8,6 +8,7 @@
             <h4>Building Exterior Lighting</h4>
             <fieldset>
 
+
                 <!-- site id/name -->
                 <div class="form-group">
                     <label class="col-md-4 control-label">Site ID / Name *</label>
