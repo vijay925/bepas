@@ -14,9 +14,9 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
 
-
+    <%--jQuery and input validation --%>
     <script src="Scripts/jquery-3.1.0.js"></script>
     <script src="Scripts/jquery-3.1.0.min.js"></script>
     <script src="Scripts/jquery.validate.min.js"></script>
@@ -24,6 +24,12 @@
     <script src="Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="Scripts/myValidation.js"></script>
+
+    <%--Data tables jquery plugin --%>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
 </head>
 <body>
     <form runat="server" class="form-horizontal">
