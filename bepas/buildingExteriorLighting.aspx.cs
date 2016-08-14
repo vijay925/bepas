@@ -115,6 +115,7 @@ namespace bepas
 
         protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
+            SuccessPanel.Visible = false;
             buildingId.Text = String.Empty;
             buildingName.Text = String.Empty;
             ClearInputFields();
@@ -143,6 +144,7 @@ namespace bepas
         {
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
+            SuccessPanel.Visible = false;
 
             string buildingUidLocal = argument[0];
             string buildingIdByUserLocal = argument[1];
@@ -259,7 +261,6 @@ namespace bepas
                     command.Parameters.AddWithValue("@lastModifiedTime", DBNull.Value);
                     connection.Open();
                     command.ExecuteNonQuery();
-                    //lblSuccess.Text = "Saved Successfully!";
                     SuccessPanel.Visible = true;
                 }
             } // if(page valid)
