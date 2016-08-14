@@ -45,38 +45,36 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h3 class="modal-title">Sites List</h3>
                                 </div>
-                                <div class="divLayerContainer">
-                                    <div class="modal-body">
-                                        <div class="table-responsive">
-                                            <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" class="table table-striped table-bordered nowrap" CellSpacing="0" Width="100%"
-                                                GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
-                                                <Columns>
-                                                    <asp:BoundField DataField="siteIdByUser" HeaderText="Site ID" HeaderStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField DataField="siteName" HeaderText="Site Name" />
-                                                    <asp:BoundField DataField="surveyDate" HeaderText="Survey Date" />
-                                                    <asp:BoundField DataField="contactName" HeaderText="Contact Name" />
-                                                    <asp:BoundField DataField="city" HeaderText="City" />
-                                                    <asp:BoundField DataField="stateText" HeaderText="State" />
-                                                    <asp:TemplateField ShowHeader="False">
-                                                        <ItemTemplate>
-                                                            <asp:Button ID="siteSelectButton" runat="server" CausesValidation="false" CommandName="SelectSite"
-                                                                Text="Select" CommandArgument='<%#Eval("uid")+";"+Eval("siteIdByUser")+";"+Eval("siteName")%>' />
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                </Columns>
-                                                <RowStyle CssClass="cursor-pointer" />
-                                            </asp:GridView>
-                                        </div>
+                                <div class="modal-body">
+                                    <div class="table-responsive">
+                                        <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" class="table table-striped table-bordered nowrap" CellSpacing="0" Width="100%"
+                                            GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
+                                            <Columns>
+                                                <asp:BoundField DataField="siteIdByUser" HeaderText="Site ID" HeaderStyle-HorizontalAlign="Center" />
+                                                <asp:BoundField DataField="siteName" HeaderText="Site Name" />
+                                                <asp:BoundField DataField="surveyDate" HeaderText="Survey Date" />
+                                                <asp:BoundField DataField="contactName" HeaderText="Contact Name" />
+                                                <asp:BoundField DataField="city" HeaderText="City" />
+                                                <asp:BoundField DataField="stateText" HeaderText="State" />
+                                                <asp:TemplateField ShowHeader="False">
+                                                    <ItemTemplate>
+                                                        <asp:Button ID="siteSelectButton" runat="server" CausesValidation="false" CommandName="SelectSite"
+                                                            Text="Select" CommandArgument='<%#Eval("uid")+";"+Eval("siteIdByUser")+";"+Eval("siteName")%>' />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                            </Columns>
+                                            <RowStyle CssClass="cursor-pointer" />
+                                        </asp:GridView>
                                     </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- building id/name -->
                 <div class="form-group">
                     <label class="col-md-4 control-label">Building ID / Name *</label>
@@ -120,7 +118,7 @@
                                                 <asp:BoundField DataField="buildingEndUseText" HeaderText="End Use" />
                                                 <asp:BoundField DataField="boxedShapeText" HeaderText="Boxed Shape" />
                                                 <asp:BoundField DataField="numberOfFloors" HeaderText="# of Floors" />
-                                                <asp:TemplateField ShowHeader="False">
+                                                <asp:TemplateField ShowHeader="false">
                                                     <ItemTemplate>
                                                         <asp:Button ID="buildingSelectButton" runat="server" CausesValidation="false" CommandName="SelectBuilding"
                                                             Text="Select" CommandArgument='<%#Eval("uid")+";"+Eval("buildingIdByUser")+";"+Eval("buildingName")%>' />
@@ -349,12 +347,6 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function () {
-
-        });
-    </script>
-
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
@@ -363,37 +355,32 @@
     <script>
 
         $(document).ready(function () {
-            $('#<%= gvSiteList.ClientID %>').DataTable({
-                    "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
-                    "pageLength": 5
-                });
-
-                $('#<%= gvBuildingList.ClientID %>').DataTable({
-                    "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
-                    "pageLength": 5
-                });
-
-                $('#siteListModal').on('shown.bs.modal', function () {
-                    $(this).find('.modal-dialog').css({
-                        width: '60%',
-                        height: 'auto',
-                        'max-height': '75%'
-                    })
-                });
-
-                $('#buildingListModal').on('shown.bs.modal', function () {
-                    $(this).find('.modal-dialog').css({
-                        width: '60%',
-                        height: 'auto',
-                        'max-height': '75%'
-                    })
-                });
+            $('#<%=gvSiteList.ClientID%>').DataTable({
+                "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+                "pageLength": 5,
+                "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [-1] }]
             });
 
-            function HideLabel() {
-                $('#<%= SuccessPanel.ClientID %>').slideUp();
-            }
-            setTimeout("HideLabel();", 3000);
+
+
+            $('#siteListModal').on('shown.bs.modal', function () {
+                $(this).find('.modal-dialog').css({
+                    height: 'auto',
+                    'min-width': '900px'
+                });
+                var dataTable = $('#<%=gvSiteList.ClientID%>').DataTable();
+                dataTable.columns.adjust().draw();
+            });
+
+
+
+
+        });
+
+        function HideLabel() {
+            $('#<%= SuccessPanel.ClientID %>').slideUp();
+        }
+        setTimeout("HideLabel();", 3000);
 
 
     </script>

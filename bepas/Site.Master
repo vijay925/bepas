@@ -14,11 +14,12 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="//https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
+    <%--jQuery --%>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 
     <%--jQuery and input validation --%>
-    <script src="Scripts/jquery-3.1.0.js"></script>
-    <script src="Scripts/jquery-3.1.0.min.js"></script>
     <script src="Scripts/jquery.validate.min.js"></script>
     <script src="Scripts/jquery.validate.js"></script>
     <script src="Scripts/jquery.validate.unobtrusive.js"></script>
