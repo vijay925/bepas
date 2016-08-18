@@ -47,15 +47,16 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="table-responsive">
-                                        <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" class="table table-striped table-bordered nowrap" CellSpacing="0" Width="100%"
+                                        <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" class="table table-bordered table-hover nowrap" CellSpacing="0" Width="100%"
                                             GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
                                             <Columns>
-                                                <asp:BoundField DataField="siteIdByUser" HeaderText="Site ID" HeaderStyle-HorizontalAlign="Center" />
+                                                <asp:BoundField DataField="uid" HeaderText="Site ID" />
+                                                <asp:BoundField DataField="siteIdByUser" HeaderText="Site IDBU" />
                                                 <asp:BoundField DataField="siteName" HeaderText="Site Name" />
-                                                <asp:BoundField DataField="surveyDate" HeaderText="Survey Date" />
+                                                <asp:BoundField DataField="surveyDate" HeaderText="Survey Date"  />
                                                 <asp:BoundField DataField="contactName" HeaderText="Contact Name" />
                                                 <asp:BoundField DataField="city" HeaderText="City" />
-                                                <asp:BoundField DataField="stateText" HeaderText="State" />
+                                                <asp:BoundField DataField="stateText" HeaderText="State"/>
                                                 <asp:TemplateField ShowHeader="False">
                                                     <ItemTemplate>
                                                         <asp:Button ID="siteSelectButton" runat="server" CausesValidation="false" CommandName="SelectSite"
@@ -109,10 +110,11 @@
                                 </div>
                                 <div class="divLayerContainer">
                                     <div class="modal-body">
-                                        <asp:GridView ID="gvBuildingList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                                        <asp:GridView ID="gvBuildingList" UseAccessibleHeader="true" CssClass="table table-bordered table-hover nowrap"
                                             GridLines="None" AutoGenerateColumns="false" OnRowCommand="gvBuildingListOnRowCommandSelect" runat="server">
                                             <Columns>
-                                                <asp:BoundField DataField="buildingIdByUser" HeaderText="Building ID" />
+                                                <asp:BoundField DataField="uid" HeaderText="Building ID"/>
+                                                <asp:BoundField DataField="buildingIdByUser" HeaderText="Building IDBU" />
                                                 <asp:BoundField DataField="buildingName" HeaderText="Building Name" />
                                                 <asp:BoundField DataField="yearBuilt" HeaderText="Year Built" />
                                                 <asp:BoundField DataField="buildingEndUseText" HeaderText="End Use" />
@@ -353,34 +355,35 @@
     <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
 
     <script>
-
         $(document).ready(function () {
             $('#<%=gvSiteList.ClientID%>').DataTable({
                 "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
                 "pageLength": 5,
-                "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [-1] }]
+                
+                "columns": [{ "sName": "uid" }, { "sName": "siteIdByUser" }, { "sName": "siteName" },
+                            { "sName": "surveyDate" }, { "sName": "contactName" }, { "sName": "city" },
+                            { "sName": "stateText" }],
+                            
+                "aoColumnDefs": [{ "visible": true, 'bSortable': false, "orderable": false, "searchable": false, 'aTargets': [-1] }]
             });
 
-
-
-            $('#siteListModal').on('shown.bs.modal', function () {
+            $('#siteListModal').on('show.bs.modal', function () {
                 $(this).find('.modal-dialog').css({
                     height: 'auto',
-                    'min-width': '900px'
+                    'min-width': '1000px'
                 });
                 var dataTable = $('#<%=gvSiteList.ClientID%>').DataTable();
                 dataTable.columns.adjust().draw();
             });
-
-
-
-
         });
 
+    </script>
+
+    <script>
         function HideLabel() {
             $('#<%= SuccessPanel.ClientID %>').slideUp();
-        }
-        setTimeout("HideLabel();", 3000);
+                }
+                setTimeout("HideLabel();", 3000);
 
 
     </script>
