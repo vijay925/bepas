@@ -13,8 +13,11 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <%--datatables and user created stylesheet --%>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <link href="Content/stylesheet.css" rel="stylesheet" />
 
     <%--jQuery --%>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
@@ -55,7 +58,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="min-width: 1300px !important;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -70,7 +73,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sites <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a runat="server" href="~/">My Sites List</a></li>
+                                <li><a runat="server" href="~/SiteList">Sites List</a></li>
                                 <li><a runat="server" href="~/">Site General Info</a></li>
                                 <li><a runat="server" href="~/">Exterior Lighting</a></li>
                                 <li><a runat="server" href="~/">Utility Billing (Electricity)</a></li>
@@ -82,16 +85,18 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buildings <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a runat="server" href="~/">General Info</a></li>
-                                <li><a runat="server" href="buildingExteriorLighting">Exterior Lighting</a></li>
-                                <li><a runat="server" href="~/">Roof &amp Exhaust Fans</a></li>
+                                <li><a runat="server" href="~/">Building List</a></li>
+                                <li><a runat="server" href="~/BuildingGeneralInfo">Building General Info</a></li>
+                                <li><a runat="server" href="BuildingExteriorLighting">Exterior Lighting</a></li>
+                                <li><a runat="server" href="~/BuildingRoofAndFans">Roof &amp Exhaust Fans</a></li>
                                 <li><a runat="server" href="~/">HVAC Inventory</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rooms <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a runat="server" href="~/">General Info</a></li>
+                                <li><a runat="server" href="~/">Room List</a></li>
+                                <li><a runat="server" href="~/">Room General Info</a></li>
                                 <li><a runat="server" href="~/">Interior Lighting</a></li>
                                 <li><a runat="server" href="~/">Thermostats</a></li>
                                 <li><a runat="server" href="~/">Windows – Envelope Fenestration</a></li>
@@ -127,20 +132,42 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+
+
+        <div class="container-full">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
+
             <footer>
-                <p>&copy; EEC - Energy Efficiency Center <%: DateTime.Now.Year %></p>
+                <p class="footer">&copy; EEC - Energy Efficiency Center <%: DateTime.Now.Year %></p>
             </footer>
         </div>
+
+
     </form>
 
-   <script type="text/javascript">
-       
-</script>
+    <script type="text/javascript">
+        function ValidatorUpdateDisplay(val) {
+            if (typeof (val.display) == "string") {
+                if (val.display == "None") {
+                    return;
+                }
+                if (val.display == "Dynamic") {
+                    val.style.display = val.isvalid ? "none" : "inline";
+                    return;
+                }
 
+            }
+            val.style.visibility = val.isvalid ? "hidden" : "visible";
+            if (!val.isvalid) {
+                //document.getElementById(val.controltovalidate).style.border = '1px solid #333';
+                //}
+                //else {
+                document.getElementById(val.controltovalidate).style.border = '1px solid red';
+            }
+        }
+
+    </script>
 
 </body>
 </html>
