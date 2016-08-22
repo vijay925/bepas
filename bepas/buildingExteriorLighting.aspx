@@ -6,7 +6,7 @@
         <div class="panel-heading h4">Building Exterior Lighting</div>
 
         <div class="panel-body">
-            <asp:Panel ID="SuccessPanel" runat="server" cssclass="alert alert-success fade in" Visible="False">
+            <asp:Panel ID="SuccessPanel" runat="server" CssClass="alert alert-success fade in" Visible="False">
                 <i class="fa-lg fa fa-bullhorn"></i>
                 <strong>Success!</strong> The Data has been saved.
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -16,13 +16,15 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Site ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="siteId" cssclass="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="siteId" CssClass="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:TextBox ID="siteName" cssclass="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
+                    <asp:TextBox ID="siteName" CssClass="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqSiteName"
                         ControlToValidate="siteName"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         ErrorMessage="Entry required"
                         runat="server">
                     </asp:RequiredFieldValidator>
@@ -46,7 +48,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="table-responsive">
-                                    <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" cssclass="table table-bordered table-hover nowrap" CellSpacing="0" Width="100%"
+                                    <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" CssClass="table table-bordered table-hover nowrap" CellSpacing="0" Width="100%"
                                         GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
                                         <Columns>
                                             <asp:BoundField DataField="uid" HeaderText="Site ID" />
@@ -79,14 +81,16 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Building ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="buildingId" cssclass="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="buildingId" CssClass="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:TextBox ID="buildingName" cssclass="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
+                    <asp:TextBox ID="buildingName" CssClass="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqBuildingName"
                         ControlToValidate="buildingName"
                         ErrorMessage="Entry required"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         runat="server">
                     </asp:RequiredFieldValidator>
                 </div>
@@ -149,6 +153,8 @@
                         ControlToValidate="ddlFixtureUse"
                         InitialValue="-1"
                         ErrorMessage="Selection required"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         runat="server">
                     </asp:RequiredFieldValidator>
                 </div>
@@ -163,6 +169,8 @@
                         ID="reqNumberOfFixtures"
                         ControlToValidate="numberOfFixtures"
                         ErrorMessage="Entry required"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         runat="server">
                     </asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator
@@ -170,6 +178,8 @@
                         ControlToValidate="numberOfFixtures"
                         runat="server"
                         ErrorMessage="Positive integers only"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         ValidationExpression="\d+">
                     </asp:RegularExpressionValidator>
                 </div>
@@ -186,6 +196,8 @@
                         ControlToValidate="ddlMountingType"
                         InitialValue="-1"
                         ErrorMessage="Selection required"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         runat="server">
                     </asp:RequiredFieldValidator>
                 </div>
@@ -200,6 +212,8 @@
                         ID="reqLampsPerFixture"
                         ControlToValidate="lampsPerFixture"
                         ErrorMessage="Selection required"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         runat="server">
                     </asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator
@@ -207,6 +221,8 @@
                         ControlToValidate="lampsPerFixture"
                         runat="server"
                         ErrorMessage="Positive integers only"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         ValidationExpression="\d+">
                     </asp:RegularExpressionValidator>
                 </div>
@@ -222,6 +238,8 @@
                         ControlToValidate="ddlLampType"
                         InitialValue="-1"
                         ErrorMessage="Selection required"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         runat="server">
                     </asp:RequiredFieldValidator>
                 </div>
@@ -236,6 +254,8 @@
                         ID="reqLampWattage"
                         ControlToValidate="lampWattage"
                         ErrorMessage="Entry required"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         runat="server">
                     </asp:RequiredFieldValidator>
                     <asp:CompareValidator
@@ -244,6 +264,8 @@
                         ControlToValidate="lampWattage"
                         Type="Double"
                         Operator="DataTypeCheck"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         ErrorMessage="Numbers only">
 
                     </asp:CompareValidator>
@@ -318,6 +340,8 @@
                         ControlToValidate="ddlFixtureControl"
                         InitialValue="-1"
                         ErrorMessage="Selection required"
+                        CssClass="validationError"
+                        Display="Dynamic"
                         runat="server">
                     </asp:RequiredFieldValidator>
 

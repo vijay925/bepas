@@ -36,3 +36,8 @@ input[type="select"] {
         padding: 0;
     }
 }
+
+/* error msg */
+.validationError {
+    color: red;
+}
