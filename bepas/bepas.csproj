@@ -202,15 +202,18 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\stylesheet.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
-    <Content Include="buildingExteriorLighting.aspx" />
+    <Content Include="BuildingExteriorLighting.aspx" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="BuildingRoofAndFans.aspx" />
+    <Content Include="BuildingGeneralInfo.aspx" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -415,12 +418,26 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="buildingExteriorLighting.aspx.cs">
-      <DependentUpon>buildingExteriorLighting.aspx</DependentUpon>
+    <Compile Include="BuildingExteriorLighting.aspx.cs">
+      <DependentUpon>BuildingExteriorLighting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="buildingExteriorLighting.aspx.designer.cs">
-      <DependentUpon>buildingExteriorLighting.aspx</DependentUpon>
+    <Compile Include="BuildingExteriorLighting.aspx.designer.cs">
+      <DependentUpon>BuildingExteriorLighting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuildingRoofAndFans.aspx.cs">
+      <DependentUpon>BuildingRoofAndFans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuildingRoofAndFans.aspx.designer.cs">
+      <DependentUpon>BuildingRoofAndFans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuildingGeneralInfo.aspx.cs">
+      <DependentUpon>BuildingGeneralInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuildingGeneralInfo.aspx.designer.cs">
+      <DependentUpon>BuildingGeneralInfo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

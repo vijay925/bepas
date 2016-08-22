@@ -1,0 +1,19 @@
+﻿.form-horizontal .control-label {
+    text-align: left;
+}
+
+.container-full {
+    width: 100%;
+}
+
+label {
+    display: inline;
+    font-weight: normal !important;
+    vertical-align: middle;
+}
+
+/* Custom container */
+.container-full {
+    padding: 15px;
+}
+
