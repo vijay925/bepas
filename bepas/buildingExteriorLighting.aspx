@@ -23,8 +23,10 @@
                         <asp:TextBox ID="siteName" class="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
                         <asp:RequiredFieldValidator
                             ID="reqSiteName"
+                            CssClass="validationError"
                             ControlToValidate="siteName"
                             ErrorMessage="Entry required"
+                            Display="Dynamic"
                             runat="server">
                         </asp:RequiredFieldValidator>
                     </div>
@@ -87,6 +89,8 @@
                             ID="reqBuildingName"
                             ControlToValidate="buildingName"
                             ErrorMessage="Entry required"
+                            CssClass="validationError"
+                            Display="Dynamic"
                             runat="server">
                         </asp:RequiredFieldValidator>
                     </div>
@@ -148,6 +152,8 @@
                             ControlToValidate="ddlFixtureUse"
                             InitialValue="-1"
                             ErrorMessage="Selection required"
+                            CssClass="validationError"
+                            Display="Dynamic"
                             runat="server">
                         </asp:RequiredFieldValidator>
                     </div>
@@ -162,6 +168,8 @@
                             ID="reqNumberOfFixtures"
                             ControlToValidate="numberOfFixtures"
                             ErrorMessage="Entry required"
+                            CssClass="validationError"
+                            Display="Dynamic"
                             runat="server">
                         </asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator
@@ -169,6 +177,8 @@
                             ControlToValidate="numberOfFixtures"
                             runat="server"
                             ErrorMessage="Positive integers only"
+                            CssClass="validationError"
+                            Display="Dynamic"
                             ValidationExpression="\d+">
                         </asp:RegularExpressionValidator>
                     </div>
@@ -185,6 +195,8 @@
                             ControlToValidate="ddlMountingType"
                             InitialValue="-1"
                             ErrorMessage="Selection required"
+                            CssClass="validationError"
+                            Display="Dynamic"
                             runat="server">
                         </asp:RequiredFieldValidator>
                     </div>
@@ -199,6 +211,8 @@
                             ID="reqLampsPerFixture"
                             ControlToValidate="lampsPerFixture"
                             ErrorMessage="Selection required"
+                            CssClass="validationError"
+                            Display="Dynamic"
                             runat="server">
                         </asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator
@@ -206,6 +220,8 @@
                             ControlToValidate="lampsPerFixture"
                             runat="server"
                             ErrorMessage="Positive integers only"
+                            CssClass="validationError"
+                            Display="Dynamic"
                             ValidationExpression="\d+">
                         </asp:RegularExpressionValidator>
                     </div>
@@ -221,6 +237,8 @@
                             ControlToValidate="ddlLampType"
                             InitialValue="-1"
                             ErrorMessage="Selection required"
+                            CssClass="validationError"
+                            Display="Dynamic"
                             runat="server">
                         </asp:RequiredFieldValidator>
                     </div>
@@ -235,6 +253,8 @@
                             ID="reqLampWattage"
                             ControlToValidate="lampWattage"
                             ErrorMessage="Entry required"
+                            CssClass="validationError"
+                            Display="Dynamic"
                             runat="server">
                         </asp:RequiredFieldValidator>
                         <asp:CompareValidator
@@ -243,7 +263,9 @@
                             ControlToValidate="lampWattage"
                             Type="Double"
                             Operator="DataTypeCheck"
-                            ErrorMessage="Numbers only">
+                            Display="Dynamic"
+                            ErrorMessage="Numbers only"
+                            CssClass="validationError">
 
                         </asp:CompareValidator>
 
@@ -313,6 +335,8 @@
                             ControlToValidate="ddlFixtureControl"
                             InitialValue="-1"
                             ErrorMessage="Selection required"
+                            Display="Dynamic"
+                            CssClass="validationError"
                             runat="server">
                         </asp:RequiredFieldValidator>
 
@@ -381,6 +405,23 @@
             $('#<%= SuccessPanel.ClientID %>').slideUp();
         }
         setTimeout("HideLabel();", 3000);
+
+        //validation red highlighting
+        $(function () {
+            if (typeof ValidatorUpdateDisplay != 'undefined') {
+                var originalValidatorUpdateDisplay = ValidatorUpdateDisplay;
+
+                ValidatorUpdateDisplay = function (val) {
+                    if (!val.isvalid) {
+                        $("#" + val.controltovalidate).css("border", "2px solid red");
+                    }
+                    originalValidatorUpdateDisplay(val);
+                    
+                }
+            }
+        });
+
+        
 
 
     </script>

@@ -138,26 +138,7 @@
     </form>
 
    <script type="text/javascript">
-    function ValidatorUpdateDisplay(val) {
-        if (typeof (val.display) == "string") {
-            if (val.display == "None") {
-                return;
-            }
-            if (val.display == "Dynamic") {
-                val.style.display = val.isvalid ? "none" : "inline";
-                return;
-            }
-
-        }
-        val.style.visibility = val.isvalid ? "hidden" : "visible";
-        if (!val.isvalid) {
-            //document.getElementById(val.controltovalidate).style.border = '1px solid #333';
-        //}
-        //else {
-            document.getElementById(val.controltovalidate).style.border = '1px solid red';
-        }          
-    }
-   
+       
 </script>
 
 
