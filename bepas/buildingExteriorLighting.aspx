@@ -19,13 +19,13 @@
                     <asp:TextBox ID="siteId" CssClass="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:TextBox ID="siteName" CssClass="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
+                    <asp:TextBox ID="siteName" CssClass="form-control" runat="server" placeholder="Site Name" ReadOnly="true"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqSiteName"
                         ControlToValidate="siteName"
                         CssClass="validationError"
                         Display="Dynamic"
-                        ErrorMessage="Entry required"
+                        ErrorMessage="Please select an option from the site list"
                         runat="server">
                     </asp:RequiredFieldValidator>
                 </div>
@@ -84,11 +84,11 @@
                     <asp:TextBox ID="buildingId" CssClass="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:TextBox ID="buildingName" CssClass="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
+                    <asp:TextBox ID="buildingName" CssClass="form-control" runat="server" placeholder="Building Name" ReadOnly="true"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqBuildingName"
                         ControlToValidate="buildingName"
-                        ErrorMessage="Entry required"
+                        ErrorMessage="Please select a building from the list"
                         CssClass="validationError"
                         Display="Dynamic"
                         runat="server">
@@ -414,6 +414,9 @@
         setTimeout("HideLabel();", 3000);
 
 
+
+
+       
     </script>
 
 
