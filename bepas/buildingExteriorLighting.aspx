@@ -6,7 +6,7 @@
         <div class="panel-heading h4">Building Exterior Lighting</div>
 
         <div class="panel-body">
-            <asp:Panel ID="SuccessPanel" runat="server" class="alert alert-success fade in" Visible="False">
+            <asp:Panel ID="SuccessPanel" runat="server" cssclass="alert alert-success fade in" Visible="False">
                 <i class="fa-lg fa fa-bullhorn"></i>
                 <strong>Success!</strong> The Data has been saved.
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -16,10 +16,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Site ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="siteId" class="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="siteId" cssclass="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:TextBox ID="siteName" class="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
+                    <asp:TextBox ID="siteName" cssclass="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqSiteName"
                         ControlToValidate="siteName"
@@ -46,7 +46,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="table-responsive">
-                                    <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" class="table table-bordered table-hover nowrap" CellSpacing="0" Width="100%"
+                                    <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" cssclass="table table-bordered table-hover nowrap" CellSpacing="0" Width="100%"
                                         GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
                                         <Columns>
                                             <asp:BoundField DataField="uid" HeaderText="Site ID" />
@@ -79,10 +79,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Building ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="buildingId" class="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="buildingId" cssclass="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:TextBox ID="buildingName" class="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
+                    <asp:TextBox ID="buildingName" cssclass="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqBuildingName"
                         ControlToValidate="buildingName"
@@ -143,7 +143,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlFixtureUse">Fixture Use? *</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlFixtureUse" runat="server" name="ddlFixtureUse" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlFixtureUse" runat="server" name="ddlFixtureUse" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                     <asp:RequiredFieldValidator
                         ID="reqDdlFixtureUse"
                         ControlToValidate="ddlFixtureUse"
@@ -158,7 +158,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="numberOfFixtures">Number of Fixtures *</label>
                 <div class="col-md-8">
-                    <asp:TextBox ID="numberOfFixtures" name="numberOfFixtures" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="numberOfFixtures" name="numberOfFixtures" CssClass="form-control input-md" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqNumberOfFixtures"
                         ControlToValidate="numberOfFixtures"
@@ -180,7 +180,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlMountingType">Mounting Type *</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlMountingType" runat="server" name="ddlMountingType" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlMountingType" runat="server" name="ddlMountingType" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                     <asp:RequiredFieldValidator
                         ID="reqDdlMountingType"
                         ControlToValidate="ddlMountingType"
@@ -195,7 +195,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="lampsPerFixture">Number of Lamps per Fixture *</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="lampsPerFixture" name="lampsPerFixture" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="lampsPerFixture" name="lampsPerFixture" CssClass="form-control input-md" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqLampsPerFixture"
                         ControlToValidate="lampsPerFixture"
@@ -216,7 +216,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlLampType">Lamp Type? *</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlLampType" runat="server" name="ddlLampType" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlLampType" runat="server" name="ddlLampType" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                     <asp:RequiredFieldValidator
                         ID="reqDdlLampType"
                         ControlToValidate="ddlLampType"
@@ -231,7 +231,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="lampWattage">Lamp Wattage *</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="lampWattage" name="lampWattage" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="lampWattage" name="lampWattage" CssClass="form-control input-md" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqLampWattage"
                         ControlToValidate="lampWattage"
@@ -255,7 +255,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="baseType">Lamp Base Type (See Reference)</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="baseType" name="baseType" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="baseType" name="baseType" CssClass="form-control input-md" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -267,7 +267,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlTubeLength">FL Lamp Tube Length</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlTubeLength" runat="server" name="ddlTubeLength" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlTubeLength" runat="server" name="ddlTubeLength" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
             </div>
 
@@ -288,7 +288,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlTubeDiameter">FL Lamp Tube Diameter</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlTubeDiameter" runat="server" name="ddlTubeDiameter" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlTubeDiameter" runat="server" name="ddlTubeDiameter" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
             </div>
 
@@ -296,7 +296,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlBallastType">Ballast Type</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlBallastType" runat="server" name="ddlBallastType" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlBallastType" runat="server" name="ddlBallastType" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
             </div>
 
@@ -304,7 +304,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ballastsPerFixture">Number of Ballasts per Fixture</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="ballastsPerFixture" name="ballastsPerFixture" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="ballastsPerFixture" name="ballastsPerFixture" CssClass="form-control input-md" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -312,7 +312,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlFixtureControl">Fixture Control *</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlFixtureControl" runat="server" name="ddlFixtureControl" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlFixtureControl" runat="server" name="ddlFixtureControl" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                     <asp:RequiredFieldValidator
                         ID="reqDdlFixtureControl"
                         ControlToValidate="ddlFixtureControl"
@@ -336,7 +336,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="fixturePhoto">Fixture Photo *</label>
                 <div class="col-md-4">
-                    <asp:FileUpload ID="fixturePhoto" name="filebutton" class="input-file" runat="server" />
+                    <asp:FileUpload ID="fixturePhoto" name="filebutton" CssClass="input-file" runat="server" />
                 </div>
             </div>
 
@@ -344,8 +344,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="loginButtons"></label>
                 <div class="col-md-8">
-                    <asp:Button ID="saveButton" name="saveButton" class="btn btn-success" runat="server" Text="Save" OnClick="saveButton_Click" />
-                    <asp:Button ID="cancelButton" name="cancelButton" class="btn btn-danger" runat="server" Text="Cancel" OnClick="cancelButton_Click" />
+                    <asp:Button ID="saveButton" name="saveButton" CssClass="btn btn-success" runat="server" Text="Save" OnClick="saveButton_Click" />
+                    <asp:Button ID="cancelButton" name="cancelButton" CssClass="btn btn-danger" runat="server" Text="Cancel" OnClick="cancelButton_Click" />
                 </div>
             </div>
         </div>

@@ -214,6 +214,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="BuildingRoofAndFans.aspx" />
     <Content Include="BuildingGeneralInfo.aspx" />
+    <Content Include="NewBuilding.aspx" />
+    <Content Include="SiteList.aspx" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -438,6 +440,20 @@
     </Compile>
     <Compile Include="BuildingGeneralInfo.aspx.designer.cs">
       <DependentUpon>BuildingGeneralInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewBuilding.aspx.cs">
+      <DependentUpon>NewBuilding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewBuilding.aspx.designer.cs">
+      <DependentUpon>NewBuilding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteList.aspx.cs">
+      <DependentUpon>SiteList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteList.aspx.designer.cs">
+      <DependentUpon>SiteList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

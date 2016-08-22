@@ -5,7 +5,7 @@
         <div class="panel-heading h4">Building Roof and Exhaust Fans</div>
 
         <div class="panel-body">
-            <asp:Panel ID="SuccessPanel" runat="server" class="alert alert-success fade in" Visible="False">
+            <asp:Panel ID="SuccessPanel" runat="server" CssClass="alert alert-success fade in" Visible="False">
                 <i class="fa-lg fa fa-bullhorn"></i>
                 <strong>Success!</strong> The Data has been saved.
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -15,10 +15,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Site ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="siteId" class="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="siteId" CssClass="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:TextBox ID="siteName" class="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
+                    <asp:TextBox ID="siteName" CssClass="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
                 </div>
                 <!-- site list button -->
                 <div class="col-md-3">
@@ -38,7 +38,7 @@
                                 <h3 class="modal-title">Sites List</h3>
                             </div>
                             <div class="modal-body">
-                                <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" class="table table-striped table-hover clearfix nowrap" CellSpacing="0" Width="100%"
+                                <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix nowrap" CellSpacing="0" Width="100%"
                                     GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
                                     <Columns>
                                         <asp:BoundField DataField="siteIdByUser" HeaderText="Site ID" HeaderStyle-HorizontalAlign="Center" />
@@ -70,10 +70,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Building ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="buildingId" class="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="buildingId" CssClass="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:TextBox ID="buildingName" class="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
+                    <asp:TextBox ID="buildingName" CssClass="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
                     <!-- Trigger the modal with a button -->
@@ -129,7 +129,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlRoofColor">Color of the roof *</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlRoofColor" runat="server" name="ddlRoofColor" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlRoofColor" runat="server" name="ddlRoofColor" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
             </div>
 
@@ -148,7 +148,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlRoofCondition">Condition of Roof *</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlRoofCondition" runat="server" name="ddlRoofCondition" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlRoofCondition" runat="server" name="ddlRoofCondition" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
             </div>
 
@@ -156,7 +156,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="roofPhoto">Roof Photo (Taken from the corner facing the opposite corner)</label>
                 <div class="col-md-4">
-                    <asp:FileUpload ID="roofPhoto" name="filebutton" class="input-file" runat="server" />
+                    <asp:FileUpload ID="roofPhoto" name="filebutton" CssClass="input-file" runat="server" />
                 </div>
             </div>
 
@@ -168,7 +168,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="numberOfFans">Number of Exhaust Fans *</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="numberOfFans" name="numberOfFans" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="numberOfFans" name="numberOfFans" CssClass="form-control input-md" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -176,7 +176,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ddlControlledBy">How are they controlled?</label>
                 <div class="col-md-4">
-                    <asp:DropDownList ID="ddlControlledBy" runat="server" name="ddlControlledBy" class="form-control" Style="width: auto"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlControlledBy" runat="server" name="ddlControlledBy" CssClass="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
             </div>
 
@@ -184,7 +184,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="runTime">Run-time per day? (In hours)</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="runTime" name="runTime" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="runTime" name="runTime" CssClass="form-control input-md" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -192,7 +192,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="cfm">Cubic Feet/Minute (CFM)</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="cfm" name="cfm" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="cfm" name="cfm" CssClass="form-control input-md" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -200,7 +200,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="horsepower">Horsepower? (If known)</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="horsepower" name="horsepower" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="horsepower" name="horsepower" CssClass="form-control input-md" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -208,7 +208,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="fanPhoto">Exhaust Fan photo</label>
                 <div class="col-md-4">
-                    <asp:FileUpload ID="fanPhoto" name="filebutton" class="input-file" runat="server" />
+                    <asp:FileUpload ID="fanPhoto" name="filebutton" CssClass="input-file" runat="server" />
                 </div>
             </div>
 
@@ -223,8 +223,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="loginButtons"></label>
                 <div class="col-md-8">
-                    <asp:Button ID="saveButton" name="saveButton" class="btn btn-success" runat="server" Text="Save" OnClick="saveButton_Click" />
-                    <asp:Button ID="cancelButton" name="cancelButton" class="btn btn-danger" runat="server" Text="Cancel" OnClick="cancelButton_Click" />
+                    <asp:Button ID="saveButton" name="saveButton" CssClass="btn btn-success" runat="server" Text="Save" OnClick="saveButton_Click" />
+                    <asp:Button ID="cancelButton" name="cancelButton" CssClass="btn btn-danger" runat="server" Text="Cancel" OnClick="cancelButton_Click" />
                 </div>
             </div>
         </div>
