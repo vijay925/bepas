@@ -216,6 +216,7 @@
     <Content Include="BuildingGeneralInfo.aspx" />
     <Content Include="NewBuilding.aspx" />
     <Content Include="SiteList.aspx" />
+    <Content Include="BuildingList.aspx" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -454,6 +455,13 @@
     </Compile>
     <Compile Include="SiteList.aspx.designer.cs">
       <DependentUpon>SiteList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuildingList.aspx.cs">
+      <DependentUpon>BuildingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuildingList.aspx.designer.cs">
+      <DependentUpon>BuildingList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
