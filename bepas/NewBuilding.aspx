@@ -17,11 +17,11 @@
                 <div class="col-md-2">
                     <asp:TextBox ID="siteId" CssClass="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <asp:TextBox ID="siteName" CssClass="form-control" runat="server" placeholder="Site Name" ReadOnly="true"></asp:TextBox>
                 </div>
                 <!-- site list button -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-info btn-md" data-toggle="modal"
                         data-target="#siteListModal">

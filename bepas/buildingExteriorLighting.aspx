@@ -18,19 +18,19 @@
                 <div class="col-md-2">
                     <asp:TextBox ID="siteId" CssClass="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <asp:TextBox ID="siteName" CssClass="form-control" runat="server" placeholder="Site Name" ReadOnly="true"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqSiteName"
                         ControlToValidate="siteName"
                         CssClass="validationError"
                         Display="Dynamic"
-                        ErrorMessage="Please select an option from the site list"
+                        ErrorMessage="Please select a site from the list"
                         runat="server">
                     </asp:RequiredFieldValidator>
                 </div>
                 <!-- site list button -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-info btn-md" data-toggle="modal"
                         data-target="#siteListModal">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="table-responsive">
-                                    <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" CssClass="table table-bordered table-hover nowrap" CellSpacing="0" Width="100%"
+                                    <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix nowrap" CellSpacing="0" Width="100%"
                                         GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
                                         <Columns>
                                             <asp:BoundField DataField="uid" HeaderText="Site ID" />
@@ -83,7 +83,7 @@
                 <div class="col-md-2">
                     <asp:TextBox ID="buildingId" CssClass="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <asp:TextBox ID="buildingName" CssClass="form-control" runat="server" placeholder="Building Name" ReadOnly="true"></asp:TextBox>
                     <asp:RequiredFieldValidator
                         ID="reqBuildingName"
@@ -94,7 +94,7 @@
                         runat="server">
                     </asp:RequiredFieldValidator>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-info btn-md" data-toggle="modal"
                         data-target="#buildingListModal">
@@ -113,7 +113,7 @@
                             </div>
                             <div class="divLayerContainer">
                                 <div class="modal-body">
-                                    <asp:GridView ID="gvBuildingList" UseAccessibleHeader="true" CssClass="table table-bordered table-hover nowrap"
+                                    <asp:GridView ID="gvBuildingList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix nowrap"
                                         GridLines="None" AutoGenerateColumns="false" OnRowCommand="gvBuildingListOnRowCommandSelect" runat="server">
                                         <Columns>
                                             <asp:BoundField DataField="uid" HeaderText="Building ID" />
@@ -380,6 +380,7 @@
     <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
 
+    <!--
     <script>
         $(document).ready(function () {
             $('#<%=gvSiteList.ClientID%>').DataTable({
@@ -406,6 +407,7 @@
         });
 
     </script>
+    -->
 
     <script>
         function HideLabel() {
