@@ -17,4 +17,6 @@ label {
     padding: 15px;
 }
 
-
+.ListContainer{
+    max-width:900px;
+}
