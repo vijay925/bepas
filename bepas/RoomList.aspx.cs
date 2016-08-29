@@ -27,7 +27,7 @@ namespace bepas
             DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
             gvBuildingList.DataSource = dataSet;
             gvBuildingList.DataBind();
-            gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
+            //gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
         } //LoadBuildingList()
 
         private void LoadRoomList(int buildingUid)
@@ -50,6 +50,9 @@ namespace bepas
         {
             gvRoomList.DataSource = null;
             gvRoomList.DataBind();
+            buildingId.Text = String.Empty;
+            buildingName.Text = String.Empty;
+
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
 
@@ -64,7 +67,13 @@ namespace bepas
 
         protected void gvBuildingListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
-            string buildingUid = e.CommandArgument.ToString();
+            string[] argument = new string[3];
+            argument = e.CommandArgument.ToString().Split(';');
+
+            string buildingUid = argument[0];
+            buildingId.Text = argument[1];
+            buildingName.Text = argument[2];
+
             LoadRoomList(Convert.ToInt32(buildingUid));
         }
 
@@ -92,6 +101,11 @@ namespace bepas
                 return dataSet;
             } //using SqlCommand
         } //GetDataUsingSp()
+
+        protected void addButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/NewBuilding.aspx");
+        }
 
 
     }

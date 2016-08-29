@@ -13,6 +13,15 @@ namespace bepas {
     public partial class WebForm5 {
         
         /// <summary>
+        /// addButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addButton;
+        
+        /// <summary>
         /// gvSiteList control.
         /// </summary>
         /// <remarks>

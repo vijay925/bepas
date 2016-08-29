@@ -59,6 +59,9 @@
                 </div>
             </div>
 
+            <asp:Button ID="addButton" CssClass="btn btn-info btn-md pull-right" runat="server" Text="Add new" OnClick="addButton_Click" />
+            <br />
+
             <asp:GridView ID="gvBuildingList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
                 GridLines="None" AutoGenerateColumns="false" runat="server">
                 <Columns>
@@ -68,10 +71,16 @@
                     <asp:BoundField DataField="buildingEndUseText" HeaderText="End Use" />
                     <asp:BoundField DataField="boxedShapeText" HeaderText="Boxed Shape" />
                     <asp:BoundField DataField="numberOfFloors" HeaderText="# of Floors" />
-                    <asp:TemplateField ShowHeader="False">
+                    <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:Button ID="buildingSelectButton" runat="server" CausesValidation="false" CommandName="SelectBuilding"
-                                Text="Select" CommandArgument='<%#Eval("uid")+";"+Eval("buildingIdByUser")+";"+Eval("buildingName")%>' />
+                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActiveBuilding"
+                                Text="Active" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewBuilding"
+                                Text="View/Edit" CommandArgument='<%#Eval("uid")%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -95,9 +104,8 @@
                 "columns": [{ "sName": "uid" }, { "sName": "siteIdByUser" }, { "sName": "siteName" },
                             { "sName": "surveyDate" }, { "sName": "contactName" }, { "sName": "city" },
                             { "sName": "stateText" }],
-
-                "aoColumnDefs": [{ "visible": true, 'bSortable': false, "orderable": false, "searchable": false, 'aTargets': [-1] }]
                 */
+                "aoColumnDefs": [{ "visible": true, 'bSortable': false, "orderable": false, "searchable": false, 'aTargets': [-1, -2] }]
             });
         });
 

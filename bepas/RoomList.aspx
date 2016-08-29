@@ -98,7 +98,7 @@
                                         <asp:TemplateField ShowHeader="False">
                                             <ItemTemplate>
                                                 <asp:Button ID="buildingSelectButton" runat="server" CausesValidation="false" CommandName="SelectBuilding"
-                                                    Text="Select" CommandArgument='<%#Eval("uid")%>' />
+                                                    Text="Select" CommandArgument='<%#Eval("uid")+";"+Eval("buildingIdByUser")+";"+Eval("buildingName")%>' />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
@@ -113,6 +113,11 @@
                     </div>
                 </div>
             </div>
+
+            <asp:Button ID="addButton" CssClass="btn btn-info btn-md pull-right" runat="server" Text="Add new" OnClick="addButton_Click" />
+            <br />
+            <br />
+
 
             <asp:GridView ID="gvRoomList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
                 GridLines="None" AutoGenerateColumns="false" runat="server">
@@ -138,6 +143,7 @@
                 </Columns>
                 <RowStyle CssClass="cursor-pointer" />
             </asp:GridView>
+
         </div>
     </div>
 
@@ -146,7 +152,6 @@
     <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
 
-    <!--
     <script>
         $(document).ready(function () {
             $('#<%=gvRoomList.ClientID%>').DataTable({
@@ -157,14 +162,12 @@
                 "columns": [{ "sName": "uid" }, { "sName": "siteIdByUser" }, { "sName": "siteName" },
                             { "sName": "surveyDate" }, { "sName": "contactName" }, { "sName": "city" },
                             { "sName": "stateText" }],
-
-                "aoColumnDefs": [{ "visible": true, 'bSortable': false, "orderable": false, "searchable": false, 'aTargets': [-1] }]
                 */
+                "aoColumnDefs": [{ "visible": true, 'bSortable': false, "orderable": false, "searchable": false, 'aTargets': [-1, -2] }]
             });
         });
 
     </script>
-    -->
 
 
 </asp:Content>

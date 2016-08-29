@@ -52,5 +52,10 @@ namespace bepas
                 return dataSet;
             } //using SqlCommand
         } //GetDataUsingSp()
+
+        protected void addButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/NewSite.aspx");
+        }
     }
 }

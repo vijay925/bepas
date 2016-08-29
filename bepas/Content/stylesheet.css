@@ -17,6 +17,24 @@ label {
     padding: 15px;
 }
 
-.ListContainer{
-    max-width:900px;
+.addButton{
+    float:right;
 }
+
+/* not working start*/
+div#MainContent_gvSiteList_filter.dataTables_filter label 
+{
+  display: block;
+  float: none;
+  width: 100%;
+
+}
+
+div#MainContent_gvSiteList_filter.dataTables_filter{
+  width: 200px;
+}
+
+div#MainContent_gvSiteList_filter.dataTables_wrapper.no-footer{
+  min-width: 500px;
+}
+/* not working end*/

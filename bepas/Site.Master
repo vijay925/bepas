@@ -74,7 +74,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sites <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/SiteList">Sites List</a></li>
-                                <li><a runat="server" href="~/">Site General Info</a></li>
+                                <li><a runat="server" href="~/SiteGeneralInfo">Site General Info</a></li>
                                 <li><a runat="server" href="~/">Exterior Lighting</a></li>
                                 <li><a runat="server" href="~/">Utility Billing (Electricity)</a></li>
                                 <li><a runat="server" href="~/">Utility Billing (Gas)</a></li>

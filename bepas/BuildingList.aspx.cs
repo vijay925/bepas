@@ -27,7 +27,7 @@ namespace bepas
             DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
             gvBuildingList.DataSource = dataSet;
             gvBuildingList.DataBind();
-            gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
+            //gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
         } //LoadBuildingList()
 
         private void LoadSiteList()
@@ -77,6 +77,10 @@ namespace bepas
             } //using SqlCommand
         } //GetDataUsingSp()
 
+        protected void addButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/NewBuilding.aspx");
+        }
 
     }
 }

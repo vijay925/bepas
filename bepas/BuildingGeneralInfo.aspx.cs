@@ -172,7 +172,7 @@ namespace bepas
                 using (SqlCommand command = new SqlCommand())
                 {
                     int UserUid = 1;
-                    command.CommandText = "spUpdateBuilding";
+                    command.CommandText = "spUpdateBuildingInfo";
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Connection = connection;
                     command.Parameters.AddWithValue("@buildingUid", Convert.ToInt32(ViewState["buildingUid"]));
