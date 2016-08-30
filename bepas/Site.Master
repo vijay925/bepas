@@ -96,8 +96,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rooms <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/RoomList">Room List</a></li>
-                                <li><a runat="server" href="~/">Room General Info</a></li>
-                                <li><a runat="server" href="~/">Interior Lighting</a></li>
+                                <li><a runat="server" href="~/RoomGeneralInfo">Room General Info</a></li>
+                                <li><a runat="server" href="~/InteriorLighting">Interior Lighting</a></li>
                                 <li><a runat="server" href="~/">Thermostats</a></li>
                                 <li><a runat="server" href="~/">Windows – Envelope Fenestration</a></li>
                                 <li><a runat="server" href="~/">Doors – Envelope Fenestration</a></li>
