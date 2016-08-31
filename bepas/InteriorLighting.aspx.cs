@@ -158,7 +158,6 @@ namespace bepas
             string buildingIdByUserLocal = argument[1];
             string buildingNameLocal = argument[2];
 
-            ViewState["buildingUid"] = buildingUidLocal;
             buildingId.Text = buildingIdByUserLocal;
             buildingName.Text = buildingNameLocal;
             LoadRoomList(Convert.ToInt32(buildingUidLocal));
@@ -189,14 +188,23 @@ namespace bepas
             if (dataSet.Tables[0].Rows.Count > 0)
             {
                 DataRow dr = dataSet.Tables[0].Rows[0];
-                ddlRoofColor.SelectedValue = dr["roofColorId"].ToString();
-                radioExposedDuctWork.SelectedValue = dr["exposedDuctId"].ToString();
-                ddlRoofCondition.SelectedValue = dr["roofConditionId"].ToString();
-                numberOfFans.Text = dr["numberOfFans"].ToString();
-                ddlControlledBy.SelectedValue = dr["controlledById"].ToString();
-                runTime.Text = dr["runTime"].ToString();
-                cfm.Text = dr["cfm"].ToString();
-                horsepower.Text = dr["horsepower"].ToString();
+                
+                ddlFixtureType.SelectedValue = dr["fixtureTypeId"].ToString();
+                numberOfFixtures.Text = dr["numberOfFixtures"].ToString();
+                ddlMountingType.SelectedValue = dr["mountingTypeId"].ToString();
+                numberOfLamps.Text = dr["numberOfLamps"].ToString();
+                ddlLampType.SelectedValue = dr["lampTypeId"].ToString();
+                lampWattage.Text = dr["lampWattage"].ToString();
+                lampBaseType.Text = dr["lampBaseType"].ToString();
+                ddlTubeLength.SelectedValue = dr["tubeLengthId"].ToString();
+                radioStraightOrCurved.SelectedValue = dr["straightOrCurvedId"].ToString();
+                ddlTubeDiameter.SelectedValue = dr["tubeDiameterId"].ToString();
+                ddlBallastType.SelectedValue = dr["ballastTypeId"].ToString();
+                numberOfBallasts.Text = dr["numberOfBallasts"].ToString();
+                ddlfixtureControl.SelectedValue = dr["fixtureControlId"].ToString();
+                radioDiffusersDirty.SelectedValue = dr["diffusersDirtyId"].ToString();
+                radioFixturesRunning.SelectedValue = dr["fixturesRunningText"].ToString();
+                radioLampsStrobing.SelectedValue = dr["lampsStrobingId"].ToString();
                 notes.Value = dr["notes"].ToString();
             }
             else
@@ -237,8 +245,6 @@ namespace bepas
 
         protected void saveButton_Click(object sender, EventArgs e)
         {
-            ClearInputFields();
-            /*
             if (Page.IsValid) //checks validation again in case javascript disabled <-- havent tested this yet
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
@@ -248,40 +254,48 @@ namespace bepas
                 using (SqlCommand command = new SqlCommand())
                 {
                     int UserUid = 1;
-                    command.CommandText = "spInsertUpdateRoofFans";
+                    command.CommandText = "spInsertUpdateInteriorLighting";
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Connection = connection;
-                    command.Parameters.AddWithValue("@buildingUid", Convert.ToInt32(ViewState["buildingUid"]));
-                    command.Parameters.AddWithValue("@roofColorId", Convert.ToInt32(ddlRoofColor.SelectedValue));
-                    command.Parameters.AddWithValue("@roofColorText", ddlRoofColor.SelectedItem.Text);
-                    command.Parameters.AddWithValue("@exposedDuctId", Convert.ToInt32(radioExposedDuctWork.SelectedValue));
-                    command.Parameters.AddWithValue("@exposedDuctText", radioExposedDuctWork.SelectedItem.Text);
-                    command.Parameters.AddWithValue("@roofConditionId", Convert.ToInt32(ddlRoofCondition.SelectedValue));
-                    command.Parameters.AddWithValue("@roofConditionText", ddlRoofCondition.SelectedItem.Text);
-                    command.Parameters.Add("@roofPhoto", SqlDbType.VarBinary).Value = DBNull.Value;
-                    command.Parameters.AddWithValue("@roofPhotoFileName", DBNull.Value);
-                    command.Parameters.AddWithValue("@numberOfFans", Convert.ToInt32(numberOfFans.Text));
-                    command.Parameters.AddWithValue("@controlledById", ddlControlledBy.SelectedValue);
-                    command.Parameters.AddWithValue("@controlledByText", ddlControlledBy.SelectedItem.Text);
-                    command.Parameters.AddWithValue("@runTime", runTime.Text);
-                    command.Parameters.AddWithValue("@cfm", Convert.ToDouble(cfm.Text));
-                    command.Parameters.AddWithValue("@horsepower", Convert.ToDouble(horsepower.Text));
-                    command.Parameters.Add("@fanPhoto", SqlDbType.VarBinary).Value = DBNull.Value;
-                    command.Parameters.AddWithValue("@fanPhotoFileName", DBNull.Value);
+                    command.Parameters.AddWithValue("@roomUid", Convert.ToInt32(ViewState["roomUid"]));
+                    command.Parameters.AddWithValue("@fixtureTypeId", Convert.ToInt32(ddlFixtureType.SelectedValue));
+                    command.Parameters.AddWithValue("@fixtureTypeText", ddlFixtureType.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@numberOfFixtures", Convert.ToInt32(numberOfFixtures.Text));
+                    command.Parameters.AddWithValue("@mountingTypeId", Convert.ToInt32(ddlMountingType.SelectedValue));
+                    command.Parameters.AddWithValue("@mountingTypeText", ddlMountingType.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@numberOfLamps", Convert.ToInt32(numberOfLamps.Text));
+                    command.Parameters.AddWithValue("@lampTypeId", Convert.ToInt32(ddlLampType.SelectedValue));
+                    command.Parameters.AddWithValue("@lampTypeText", ddlLampType.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@lampWattage", Convert.ToInt32(lampWattage.Text));
+                    command.Parameters.AddWithValue("@lampBaseType", lampBaseType.Text);
+                    command.Parameters.AddWithValue("@tubeLengthId", Convert.ToInt32(ddlTubeLength.SelectedValue));
+                    command.Parameters.AddWithValue("@tubeLengthText", ddlTubeLength.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@straightOrCurvedId", Convert.ToInt32(radioStraightOrCurved.SelectedValue));
+                    command.Parameters.AddWithValue("@straightOrCurvedText", radioStraightOrCurved.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@tubeDiameterId", Convert.ToInt32(ddlTubeDiameter.SelectedValue));
+                    command.Parameters.AddWithValue("@tubeDiameterText", ddlTubeDiameter.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@ballastTypeId", Convert.ToInt32(ddlBallastType.SelectedValue));
+                    command.Parameters.AddWithValue("@ballastTypeText", ddlBallastType.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@numberOfBallasts", Convert.ToInt32(numberOfBallasts.Text));
+                    command.Parameters.AddWithValue("@fixtureControlId", Convert.ToInt32(ddlfixtureControl.SelectedValue));
+                    command.Parameters.AddWithValue("@fixtureControlText", ddlfixtureControl.SelectedItem.Text);
+                    command.Parameters.Add("@fixturePhoto", SqlDbType.VarBinary).Value = DBNull.Value;
+                    command.Parameters.AddWithValue("@fixturePhotoFileName", DBNull.Value); 
+                    command.Parameters.AddWithValue("@diffusersDirtyId", Convert.ToInt32(radioDiffusersDirty.SelectedValue));
+                    command.Parameters.AddWithValue("@diffusersDirtyText", radioDiffusersDirty.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@fixturesRunningId", Convert.ToInt32(radioFixturesRunning.SelectedValue));
+                    command.Parameters.AddWithValue("@fixturesRunningText", radioFixturesRunning.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@lampsStrobingId", Convert.ToInt32(radioLampsStrobing.SelectedValue));
+                    command.Parameters.AddWithValue("@lampsStrobingText", radioLampsStrobing.SelectedItem.Text);
                     command.Parameters.AddWithValue("@notes", notes.InnerText);
-                    command.Parameters.AddWithValue("@creatorId", UserUid);
-                    command.Parameters.AddWithValue("@creatorName", DBNull.Value);
-                    command.Parameters.AddWithValue("@creationTime", DBNull.Value);
-                    command.Parameters.AddWithValue("@lastModifierId", UserUid);
-                    command.Parameters.AddWithValue("@lastModifierName", DBNull.Value);
-                    command.Parameters.AddWithValue("@lastModifiedTime", DBNull.Value);
+                    command.Parameters.AddWithValue("@userId", UserUid);
                     connection.Open();
                     command.ExecuteNonQuery();
                     SuccessPanel.Visible = true;
+                    
                 }
             } // if(page valid)
 
-    */
         } //saveButton_Click()
 
         private void ClearInputFields()
