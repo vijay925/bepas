@@ -223,6 +223,8 @@
     <Content Include="RoomGeneralInfo.aspx" />
     <Content Include="InteriorLighting.aspx" />
     <Content Include="NewThermostat.aspx" />
+    <Content Include="NewWindow.aspx" />
+    <Content Include="NewDoor.aspx" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -510,6 +512,20 @@
     </Compile>
     <Compile Include="NewThermostat.aspx.designer.cs">
       <DependentUpon>NewThermostat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewWindow.aspx.cs">
+      <DependentUpon>NewWindow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewWindow.aspx.designer.cs">
+      <DependentUpon>NewWindow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewDoor.aspx.cs">
+      <DependentUpon>NewDoor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewDoor.aspx.designer.cs">
+      <DependentUpon>NewDoor.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
