@@ -225,6 +225,9 @@
     <Content Include="NewThermostat.aspx" />
     <Content Include="NewWindow.aspx" />
     <Content Include="NewDoor.aspx" />
+    <Content Include="NewPlugload.aspx" />
+    <Content Include="NewSkylight.aspx" />
+    <Content Include="NewDomesticHotWater.aspx" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -526,6 +529,27 @@
     </Compile>
     <Compile Include="NewDoor.aspx.designer.cs">
       <DependentUpon>NewDoor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewPlugload.aspx.cs">
+      <DependentUpon>NewPlugload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewPlugload.aspx.designer.cs">
+      <DependentUpon>NewPlugload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewSkylight.aspx.cs">
+      <DependentUpon>NewSkylight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewSkylight.aspx.designer.cs">
+      <DependentUpon>NewSkylight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewDomesticHotWater.aspx.cs">
+      <DependentUpon>NewDomesticHotWater.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewDomesticHotWater.aspx.designer.cs">
+      <DependentUpon>NewDomesticHotWater.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
