@@ -228,6 +228,8 @@
     <Content Include="NewPlugload.aspx" />
     <Content Include="NewSkylight.aspx" />
     <Content Include="NewDomesticHotWater.aspx" />
+    <Content Include="NewSpecialtyKitchenEquipment.aspx" />
+    <Content Include="NewMiscInventory.aspx" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -550,6 +552,20 @@
     </Compile>
     <Compile Include="NewDomesticHotWater.aspx.designer.cs">
       <DependentUpon>NewDomesticHotWater.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewSpecialtyKitchenEquipment.aspx.cs">
+      <DependentUpon>NewSpecialtyKitchenEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewSpecialtyKitchenEquipment.aspx.designer.cs">
+      <DependentUpon>NewSpecialtyKitchenEquipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewMiscInventory.aspx.cs">
+      <DependentUpon>NewMiscInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewMiscInventory.aspx.designer.cs">
+      <DependentUpon>NewMiscInventory.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
