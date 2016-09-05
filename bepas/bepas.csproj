@@ -230,6 +230,14 @@
     <Content Include="NewDomesticHotWater.aspx" />
     <Content Include="NewSpecialtyKitchenEquipment.aspx" />
     <Content Include="NewMiscInventory.aspx" />
+    <Content Include="ThermostatList.aspx" />
+    <Content Include="DoorList.aspx" />
+    <Content Include="PlugloadList.aspx" />
+    <Content Include="SkylightList.aspx" />
+    <Content Include="DomesticHotWaterList.aspx" />
+    <Content Include="SpecialtyKitchenEquipmentList.aspx" />
+    <Content Include="MiscInventoryList.aspx" />
+    <Content Include="WindowList.aspx" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -566,6 +574,62 @@
     </Compile>
     <Compile Include="NewMiscInventory.aspx.designer.cs">
       <DependentUpon>NewMiscInventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThermostatList.aspx.cs">
+      <DependentUpon>ThermostatList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThermostatList.aspx.designer.cs">
+      <DependentUpon>ThermostatList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoorList.aspx.cs">
+      <DependentUpon>DoorList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoorList.aspx.designer.cs">
+      <DependentUpon>DoorList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlugloadList.aspx.cs">
+      <DependentUpon>PlugloadList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlugloadList.aspx.designer.cs">
+      <DependentUpon>PlugloadList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkylightList.aspx.cs">
+      <DependentUpon>SkylightList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkylightList.aspx.designer.cs">
+      <DependentUpon>SkylightList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DomesticHotWaterList.aspx.cs">
+      <DependentUpon>DomesticHotWaterList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DomesticHotWaterList.aspx.designer.cs">
+      <DependentUpon>DomesticHotWaterList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialtyKitchenEquipmentList.aspx.cs">
+      <DependentUpon>SpecialtyKitchenEquipmentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SpecialtyKitchenEquipmentList.aspx.designer.cs">
+      <DependentUpon>SpecialtyKitchenEquipmentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MiscInventoryList.aspx.cs">
+      <DependentUpon>MiscInventoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiscInventoryList.aspx.designer.cs">
+      <DependentUpon>MiscInventoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowList.aspx.cs">
+      <DependentUpon>WindowList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WindowList.aspx.designer.cs">
+      <DependentUpon>WindowList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
