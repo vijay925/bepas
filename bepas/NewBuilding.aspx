@@ -72,7 +72,7 @@
                 <div class="col-md-2">
                     <asp:TextBox ID="buildingId" CssClass="form-control" runat="server" placeholder="Building ID"></asp:TextBox>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <asp:TextBox ID="buildingName" CssClass="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
                 </div>
             </div>

@@ -89,7 +89,7 @@
                                 <li><a runat="server" href="~/BuildingGeneralInfo">Building General Info</a></li>
                                 <li><a runat="server" href="BuildingExteriorLighting">Exterior Lighting</a></li>
                                 <li><a runat="server" href="~/BuildingRoofAndFans">Roof &amp Exhaust Fans</a></li>
-                                <li><a runat="server" href="~/">HVAC Inventory</a></li>
+                                <li><a runat="server" href="~/HvacList">HVAC Inventory</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -142,8 +142,6 @@
                 <p class="footer">&copy; EEC - Energy Efficiency Center <%: DateTime.Now.Year %></p>
             </footer>
         </div>
-
-
     </form>
 
 

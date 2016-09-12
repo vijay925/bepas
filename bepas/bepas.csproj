@@ -238,6 +238,8 @@
     <Content Include="SpecialtyKitchenEquipmentList.aspx" />
     <Content Include="MiscInventoryList.aspx" />
     <Content Include="SiteExteriorLighting.aspx" />
+    <Content Include="HvacList.aspx" />
+    <Content Include="NewHvac.aspx" />
     <Content Include="WindowList.aspx" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -631,6 +633,20 @@
     </Compile>
     <Compile Include="SiteExteriorLighting.aspx.designer.cs">
       <DependentUpon>SiteExteriorLighting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HvacList.aspx.cs">
+      <DependentUpon>HvacList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HvacList.aspx.designer.cs">
+      <DependentUpon>HvacList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewHvac.aspx.cs">
+      <DependentUpon>NewHvac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewHvac.aspx.designer.cs">
+      <DependentUpon>NewHvac.aspx</DependentUpon>
     </Compile>
     <Compile Include="WindowList.aspx.cs">
       <DependentUpon>WindowList.aspx</DependentUpon>
