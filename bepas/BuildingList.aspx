@@ -61,6 +61,7 @@
 
             <asp:Button ID="addButton" CssClass="btn btn-info btn-md pull-right" runat="server" Text="Add new" OnClick="addButton_Click" />
             <br />
+            <br />
 
             <asp:GridView ID="gvBuildingList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
                 GridLines="None" AutoGenerateColumns="false" runat="server">

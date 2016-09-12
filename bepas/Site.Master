@@ -75,7 +75,7 @@
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/SiteList">Sites List</a></li>
                                 <li><a runat="server" href="~/SiteGeneralInfo">Site General Info</a></li>
-                                <li><a runat="server" href="~/">Exterior Lighting</a></li>
+                                <li><a runat="server" href="~/SiteExteriorLighting">Exterior Lighting</a></li>
                                 <li><a runat="server" href="~/">Utility Billing (Electricity)</a></li>
                                 <li><a runat="server" href="~/">Utility Billing (Gas)</a></li>
                                 <li><a runat="server" href="~/">Utility Billing (Solar)</a></li>
