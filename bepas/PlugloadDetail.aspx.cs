@@ -10,18 +10,49 @@ using System.Configuration;
 
 namespace bepas
 {
-    public partial class MiscInventoryDetail : System.Web.UI.Page
+    public partial class PlugloadDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
+                LoadDropdownItems();
                 LoadSiteList();
 
             } //if
 
         } //Page_Load()
 
+        private void LoadDropdownItems()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandText = "spLoadDropdownItems";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Connection = connection;
+
+                connection.Open();
+
+                using (DataSet dataSet = new DataSet())
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+
+                    command.Parameters.AddWithValue("@uid", 40);
+                    adapter.Fill(dataSet);
+                    ddlPlugloadType.DataSource = dataSet;
+                    ddlPlugloadType.DataTextField = "value";
+                    ddlPlugloadType.DataValueField = "uid";
+                    ddlPlugloadType.DataBind();
+                } //using SqlDataAdapter
+            } //using SqlCommand
+
+
+            ddlPlugloadType.Items.Insert(0, new ListItem("Please Select", "-1"));
+
+        } //LoadDropdownItems()
 
         private void LoadSiteList()
         {
@@ -47,13 +78,13 @@ namespace bepas
             gvRoomList.HeaderRow.TableSection = TableRowSection.TableHeader;
         } //LoadRoomList()
 
-        private void LoadInventoryList(int roomUid)
+        private void LoadPlugloadList(int roomUid)
         {
-            DataSet dataSet = GetDataUsingSp("spLoadMiscInventoryList", "@roomUid", roomUid);
-            gvMiscInventoryList.DataSource = dataSet;
-            gvMiscInventoryList.DataBind();
-            gvMiscInventoryList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadInventoryList()
+            DataSet dataSet = GetDataUsingSp("spLoadPlugloadList", "@roomUid", roomUid);
+            gvPlugloadList.DataSource = dataSet;
+            gvPlugloadList.DataBind();
+            gvPlugloadList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadSkylightList()
 
         protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
@@ -62,7 +93,7 @@ namespace bepas
             buildingName.Text = String.Empty;
             roomId.Text = String.Empty;
             roomName.Text = String.Empty;
-            inventoryName.Text = String.Empty;
+            plugloadName.Text = String.Empty;
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -81,11 +112,11 @@ namespace bepas
             SuccessPanel.Visible = false;
             roomId.Text = String.Empty;
             roomName.Text = String.Empty;
-            inventoryName.Text = String.Empty;
+            plugloadName.Text = String.Empty;
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
-            
+
             string buildingUidLocal = argument[0];
             string buildingIdByUserLocal = argument[1];
             string buildingNameLocal = argument[2];
@@ -98,65 +129,34 @@ namespace bepas
         protected void gvRoomListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
             SuccessPanel.Visible = false;
-            inventoryName.Text = String.Empty;
+            plugloadName.Text = String.Empty;
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
-            
+
             string roomUidLocal = argument[0];
             string roomIdByUserLocal = argument[1];
             string roomNameLocal = argument[2];
 
             roomId.Text = roomIdByUserLocal;
             roomName.Text = roomNameLocal;
-            LoadInventoryList(Convert.ToInt32(roomUidLocal));
+            LoadPlugloadList(Convert.ToInt32(roomUidLocal));
         }
 
-        protected void gvInventoryListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
+        protected void gvPlugloadListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
-            string[] argument = new string[2];
-            argument = e.CommandArgument.ToString().Split(';');
             SuccessPanel.Visible = false;
 
-            string inventoryUidLocal = argument[0];
-            string inventoryNameLocal = argument[1];
+            string[] argument = new string[2];
+            argument = e.CommandArgument.ToString().Split(';');
 
-            Response.Write(inventoryUidLocal);
-            Response.Write(inventoryNameLocal);
+            string plugloadUidLocal = argument[0];
+            string plugloadNameLocal = argument[1];
 
-            ViewState["inventoryUid"] = inventoryUidLocal;
-            inventoryName.Text = inventoryNameLocal;
-            //LoadInputFields(Convert.ToInt32(inventoryUidLocal));
+            ViewState["roomUid"] = plugloadUidLocal;
+            plugloadName.Text = plugloadNameLocal;
+            //loadinputs(Convert.ToInt32(roomUidLocal));
         }
-
-        private void LoadInputFields(int buildingUid)
-        {
-            DataSet dataSet = GetDataUsingSp("spLoadBuildingGeneralInfo", "@buildingUid", buildingUid);
-
-            if (dataSet.Tables[0].Rows.Count > 0)
-            {
-                DataRow dr = dataSet.Tables[0].Rows[0];
-                //yearBuilt.Text = dr["yearBuilt"].ToString(); ;
-                //ddlBuildingEndUse.SelectedValue = dr["buildingEndUseId"].ToString();
-                //radioBoxedShape.SelectedValue = dr["boxedShapeId"].ToString();
-                //grossAreaPerFloor.Text = dr["grossAreaPerFloor"].ToString();
-                //buildingHeight.Text = dr["buildingHeight"].ToString();
-                //buildingWidth.Text = dr["buildingWidth"].ToString();
-                //buildingLength.Text = dr["buildingLength"].ToString();
-                //numberOfHVAC.Text = dr["numberOfHVAC"].ToString();
-                //radioOwnedOrLeased.SelectedValue = dr["ownedOrLeasedId"].ToString();
-                //numberOfFloors.Text = dr["numberOfFloors"].ToString();
-                //radioPreviousAudit.SelectedValue = dr["previousAuditId"].ToString();
-                //previousAuditDate.Text = dr["previousAuditDate"].ToString();
-                //meterId.Text = dr["meterId"].ToString();
-                //radioMeteredIndividually.SelectedValue = dr["meteredIndividuallyId"].ToString();
-                //notes.Value = dr["notes"].ToString();
-            }
-            else
-            {
-                ClearInputFields();
-            }
-        } //LoadInputFields()
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)
         {
@@ -188,11 +188,10 @@ namespace bepas
             Response.Redirect("~");
         }
 
-        protected void saveButton_Click(object sender, EventArgs e)
+        protected void addButton_Click(object sender, EventArgs e)
         {
             if (Page.IsValid) //checks validation again in case javascript disabled <-- havent tested this yet
             {
-
                 string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -200,20 +199,23 @@ namespace bepas
                 using (SqlCommand command = new SqlCommand())
                 {
                     int UserUid = 1;
-                    command.CommandText = "spInsertMiscInventory";
+                    command.CommandText = "spInsertPlugload";
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Connection = connection;
                     command.Parameters.AddWithValue("@roomUid", Convert.ToInt32(ViewState["roomUid"]));
-                    //command.Parameters.AddWithValue("@name", name.Text);
-                    command.Parameters.AddWithValue("@make", make.Text);
-                    command.Parameters.AddWithValue("@model", model.Text);
+                    command.Parameters.AddWithValue("@plugloadName", plugloadName.Text);
+                    command.Parameters.AddWithValue("@plugloadTypeId", Convert.ToInt32(ddlPlugloadType.SelectedValue));
+                    command.Parameters.AddWithValue("@plugloadTypeText", ddlPlugloadType.SelectedItem.Text);
                     command.Parameters.AddWithValue("@quantity", quantity.Text);
                     command.Parameters.AddWithValue("@wattage", wattage.Text);
-                    command.Parameters.AddWithValue("@purpose", purpose.InnerText);
-                    command.Parameters.AddWithValue("@runTime", runTime.Text);
-                    command.Parameters.Add("@unitPhoto", SqlDbType.VarBinary).Value = DBNull.Value;
-                    command.Parameters.AddWithValue("@unitPhotoFileName", DBNull.Value);
+                    command.Parameters.AddWithValue("@onStandbyId", Convert.ToInt32(radioOnStandby.SelectedValue));
+                    command.Parameters.AddWithValue("@onStandbyText", radioOnStandby.SelectedItem.Text);
+                    command.Parameters.AddWithValue("@controls", controls.Text);
+                    command.Parameters.Add("@plugloadPhoto", SqlDbType.VarBinary).Value = DBNull.Value;
+                    command.Parameters.AddWithValue("@plugloadPhotoFileName", DBNull.Value);
                     command.Parameters.AddWithValue("@notes", notes.InnerText);
+                    command.Parameters.AddWithValue("@plugloadOperatingId", Convert.ToInt32(radioPlugloadOperating.SelectedValue));
+                    command.Parameters.AddWithValue("@plugloadOperatingText", radioPlugloadOperating.SelectedItem.Text);
                     command.Parameters.AddWithValue("@userId", UserUid);
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -222,18 +224,6 @@ namespace bepas
             } // if(page valid)
 
         } //addButton_Click()
-
-        private void ClearInputFields()
-        {
-            inventoryName.Text = String.Empty;
-            make.Text = String.Empty;
-            model.Text = String.Empty;
-            quantity.Text = String.Empty;
-            wattage.Text = String.Empty;
-            purpose.Value = String.Empty;
-            runTime.Text = String.Empty;
-            notes.Value = String.Empty;
-        }
 
     } //Webform
 } //namespace bepas

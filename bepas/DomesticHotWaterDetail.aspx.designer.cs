@@ -10,7 +10,7 @@
 namespace bepas {
     
     
-    public partial class MiscInventoryDetail {
+    public partial class DomesticHotWaterDetail {
         
         /// <summary>
         /// SuccessPanel control.
@@ -103,76 +103,157 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.GridView gvRoomList;
         
         /// <summary>
-        /// inventoryName control.
+        /// waterId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inventoryName;
+        protected global::System.Web.UI.WebControls.TextBox waterId;
         
         /// <summary>
-        /// gvMiscInventoryList control.
+        /// waterName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMiscInventoryList;
+        protected global::System.Web.UI.WebControls.TextBox waterName;
         
         /// <summary>
-        /// make control.
+        /// gvHotWaterList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox make;
+        protected global::System.Web.UI.WebControls.GridView gvHotWaterList;
         
         /// <summary>
-        /// model control.
+        /// ddlHeaterType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox model;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHeaterType;
         
         /// <summary>
-        /// quantity control.
+        /// storageSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox quantity;
+        protected global::System.Web.UI.WebControls.TextBox storageSize;
         
         /// <summary>
-        /// wattage control.
+        /// ddlFuelType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wattage;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFuelType;
         
         /// <summary>
-        /// purpose control.
+        /// electricWattage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea purpose;
+        protected global::System.Web.UI.WebControls.TextBox electricWattage;
         
         /// <summary>
-        /// runTime control.
+        /// gasBtuh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox runTime;
+        protected global::System.Web.UI.WebControls.TextBox gasBtuh;
+        
+        /// <summary>
+        /// efficiencyRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox efficiencyRating;
+        
+        /// <summary>
+        /// radioInsulationJacket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioInsulationJacket;
+        
+        /// <summary>
+        /// insulationRValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox insulationRValue;
+        
+        /// <summary>
+        /// averageTemperature control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox averageTemperature;
+        
+        /// <summary>
+        /// radioPipesInsulated control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioPipesInsulated;
+        
+        /// <summary>
+        /// radioRecirculationPump control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioRecirculationPump;
+        
+        /// <summary>
+        /// ddlControlType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlControlType;
+        
+        /// <summary>
+        /// setpointTemperature control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox setpointTemperature;
+        
+        /// <summary>
+        /// avgRecirculationTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox avgRecirculationTime;
         
         /// <summary>
         /// unitPhoto control.
@@ -184,6 +265,15 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.FileUpload unitPhoto;
         
         /// <summary>
+        /// infoPlatePhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload infoPlatePhoto;
+        
+        /// <summary>
         /// notes control.
         /// </summary>
         /// <remarks>
@@ -193,13 +283,13 @@ namespace bepas {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea notes;
         
         /// <summary>
-        /// saveButton control.
+        /// addButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveButton;
+        protected global::System.Web.UI.WebControls.Button addButton;
         
         /// <summary>
         /// cancelButton control.

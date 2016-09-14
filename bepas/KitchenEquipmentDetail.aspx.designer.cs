@@ -10,7 +10,7 @@
 namespace bepas {
     
     
-    public partial class MiscInventoryDetail {
+    public partial class KitchenEquipmentDetail {
         
         /// <summary>
         /// SuccessPanel control.
@@ -103,85 +103,130 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.GridView gvRoomList;
         
         /// <summary>
-        /// inventoryName control.
+        /// equipmentId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inventoryName;
+        protected global::System.Web.UI.WebControls.TextBox equipmentId;
         
         /// <summary>
-        /// gvMiscInventoryList control.
+        /// equipmentName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMiscInventoryList;
+        protected global::System.Web.UI.WebControls.TextBox equipmentName;
         
         /// <summary>
-        /// make control.
+        /// gvEquipmentList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox make;
+        protected global::System.Web.UI.WebControls.GridView gvEquipmentList;
         
         /// <summary>
-        /// model control.
+        /// ddlEquipmentType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox model;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEquipmentType;
         
         /// <summary>
-        /// quantity control.
+        /// ddlFuelType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox quantity;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFuelType;
         
         /// <summary>
-        /// wattage control.
+        /// electricWattage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wattage;
+        protected global::System.Web.UI.WebControls.TextBox electricWattage;
         
         /// <summary>
-        /// purpose control.
+        /// gasBtuh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea purpose;
+        protected global::System.Web.UI.WebControls.TextBox gasBtuh;
         
         /// <summary>
-        /// runTime control.
+        /// ddlControlledBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox runTime;
+        protected global::System.Web.UI.WebControls.DropDownList ddlControlledBy;
         
         /// <summary>
-        /// unitPhoto control.
+        /// hoursOn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload unitPhoto;
+        protected global::System.Web.UI.WebControls.TextBox hoursOn;
+        
+        /// <summary>
+        /// equipmentPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload equipmentPhoto;
+        
+        /// <summary>
+        /// infoPlatePhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload infoPlatePhoto;
+        
+        /// <summary>
+        /// radioEquipmentSeals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioEquipmentSeals;
+        
+        /// <summary>
+        /// radioDoorCloser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioDoorCloser;
+        
+        /// <summary>
+        /// radioFiltersClean control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioFiltersClean;
         
         /// <summary>
         /// notes control.
@@ -193,13 +238,13 @@ namespace bepas {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea notes;
         
         /// <summary>
-        /// saveButton control.
+        /// addButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveButton;
+        protected global::System.Web.UI.WebControls.Button addButton;
         
         /// <summary>
         /// cancelButton control.

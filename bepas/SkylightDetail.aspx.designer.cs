@@ -10,7 +10,7 @@
 namespace bepas {
     
     
-    public partial class MiscInventoryDetail {
+    public partial class SkylightDetail {
         
         /// <summary>
         /// SuccessPanel control.
@@ -103,85 +103,112 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.GridView gvRoomList;
         
         /// <summary>
-        /// inventoryName control.
+        /// skylightId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inventoryName;
+        protected global::System.Web.UI.WebControls.TextBox skylightId;
         
         /// <summary>
-        /// gvMiscInventoryList control.
+        /// skylightName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMiscInventoryList;
+        protected global::System.Web.UI.WebControls.TextBox skylightName;
         
         /// <summary>
-        /// make control.
+        /// gvSkylightList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox make;
+        protected global::System.Web.UI.WebControls.GridView gvSkylightList;
         
         /// <summary>
-        /// model control.
+        /// ddlSkylightOrientation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox model;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSkylightOrientation;
         
         /// <summary>
-        /// quantity control.
+        /// ddlSkylightType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox quantity;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSkylightType;
         
         /// <summary>
-        /// wattage control.
+        /// numberOfSkylights control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wattage;
+        protected global::System.Web.UI.WebControls.TextBox numberOfSkylights;
         
         /// <summary>
-        /// purpose control.
+        /// skylightLength control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea purpose;
+        protected global::System.Web.UI.WebControls.TextBox skylightLength;
         
         /// <summary>
-        /// runTime control.
+        /// skylightWidth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox runTime;
+        protected global::System.Web.UI.WebControls.TextBox skylightWidth;
         
         /// <summary>
-        /// unitPhoto control.
+        /// ddlGlazing control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload unitPhoto;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGlazing;
+        
+        /// <summary>
+        /// ddlCoating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCoating;
+        
+        /// <summary>
+        /// ddlExteriorShading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlExteriorShading;
+        
+        /// <summary>
+        /// skylightPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload skylightPhoto;
         
         /// <summary>
         /// notes control.
@@ -193,13 +220,13 @@ namespace bepas {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea notes;
         
         /// <summary>
-        /// saveButton control.
+        /// addButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveButton;
+        protected global::System.Web.UI.WebControls.Button addButton;
         
         /// <summary>
         /// cancelButton control.

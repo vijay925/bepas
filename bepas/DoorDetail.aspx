@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MiscInventoryDetail.aspx.cs" Inherits="bepas.MiscInventoryDetail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DoorDetail.aspx.cs" Inherits="bepas.DoorDetail" %>
 
-<asp:Content ID="MiscInventoryDetail" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="DoorDetail" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-default">
-        <div class="panel-heading h4">Misc. Inventory Detail</div>
+        <div class="panel-heading h4">Door Detail</div>
 
         <div class="panel-body">
             <asp:Panel ID="SuccessPanel" runat="server" CssClass="alert alert-success fade in" Visible="False">
@@ -38,7 +38,7 @@
                                 <h3 class="modal-title">Sites List</h3>
                             </div>
                             <div class="modal-body">
-                                <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" CssClass="table table-striped table-hover" CellSpacing="0" Width="100%"
+                                <asp:GridView ID="gvSiteList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix nowrap" CellSpacing="0" Width="100%"
                                     GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvSiteListOnRowCommandSelect">
                                     <Columns>
                                         <asp:BoundField DataField="siteIdByUser" HeaderText="Site ID" HeaderStyle-HorizontalAlign="Center" />
@@ -93,7 +93,7 @@
                                 <h3 class="modal-title">Building List</h3>
                             </div>
                             <div class="modal-body">
-                                <asp:GridView ID="gvBuildingList" UseAccessibleHeader="true" CssClass="table table-striped table-hover"
+                                <asp:GridView ID="gvBuildingList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
                                     GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvBuildingListOnRowCommandSelect">
                                     <Columns>
                                         <asp:BoundField DataField="buildingIdByUser" HeaderText="Building ID" />
@@ -148,7 +148,7 @@
                                 <h3 class="modal-title">Room List</h3>
                             </div>
                             <div class="modal-body">
-                                <asp:GridView ID="gvRoomList" UseAccessibleHeader="true" CssClass="table table-striped table-hover"
+                                <asp:GridView ID="gvRoomList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
                                     GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvRoomListOnRowCommandSelect">
                                     <Columns>
                                         <asp:BoundField DataField="roomIdByUser" HeaderText="Room ID" />
@@ -175,42 +175,47 @@
                 </div>
             </div>
 
-            <!-- Misc. Inventory Name * -->
+            <!-- Door ID / Name * -->
             <div class="form-group">
-                <label class="col-md-4 control-label">Misc. Inventory Name *</label>
+                <label class="col-md-4 control-label">Door ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="inventoryName" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="doorId" CssClass="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <asp:TextBox ID="doorName" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-md-4">
                     <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                        data-target="#inventoryListModal">
-                        Inventory List</button>
+                        data-target="#doorListModal">
+                        Door List</button>
                 </div>
 
                 <!-- Modal -->
-                <div id="inventoryListModal" class="modal fade" role="dialog">
+                <div id="doorListModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h3 class="modal-title">Inventory List</h3>
+                                <h3 class="modal-title">Door List</h3>
                             </div>
                             <div class="modal-body">
-                                <asp:GridView ID="gvMiscInventoryList" UseAccessibleHeader="true" CssClass="table table-striped table-hover"
-                                    GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvInventoryListOnRowCommandSelect">
+                                <asp:GridView ID="gvDoorList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                                    GridLines="None" AutoGenerateColumns="false" runat="server" OnRowCommand="gvDoorListOnRowCommandSelect">
                                     <Columns>
-                                        <asp:BoundField DataField="name" HeaderText="Name" />
-                                        <asp:BoundField DataField="make" HeaderText="Make" />
-                                        <asp:BoundField DataField="model" HeaderText="Model" />
-                                        <asp:BoundField DataField="quantity" HeaderText="Quantity" />
-                                        <asp:BoundField DataField="wattage" HeaderText="Wattage" />
+                                        <asp:BoundField DataField="doorIdByUser" HeaderText="Door ID" />
+                                        <asp:BoundField DataField="doorName" HeaderText="Name" />
+                                        <asp:BoundField DataField="doorTypeText" HeaderText="Type" />
+                                        <asp:BoundField DataField="doorOrientationText" HeaderText="Orientation" />
+                                        <asp:BoundField DataField="doorMaterialText" HeaderText="Material" />
+                                        <asp:BoundField DataField="doorHeight" HeaderText="Height" />
+                                        <asp:BoundField DataField="doorWidth" HeaderText="Width" />
                                         <asp:TemplateField ShowHeader="False">
                                             <ItemTemplate>
-                                                <asp:Button ID="inventorySelectButton" runat="server" CausesValidation="false" CommandName="SelectInventory"
-                                                    Text="Select" CommandArgument='<%#Eval("uid")+";"+Eval("name")%>' />
+                                                <asp:Button ID="doorSelectButton" runat="server" CausesValidation="false" CommandName="SelectDoor"
+                                                    Text="Select" CommandArgument='<%#Eval("uid")+";"+Eval("doorIdByUser")+";"+Eval("doorName")%>' />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
@@ -226,66 +231,140 @@
                 </div>
             </div>
 
-
-            <!-- Text input-->
+            <!-- Dropdown -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="make">Make</label>
+                <label class="col-md-4 control-label" for="ddlDoorOrientation">Door Orientation *</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="make" name="make" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlDoorOrientation" runat="server" name="ddlDoorOrientation" class="form-control" Style="width: auto"></asp:DropDownList>
+                </div>
+            </div>
+
+            <!-- Dropdown -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="ddlDoorType">Door Type *</label>
+                <div class="col-md-4">
+                    <asp:DropDownList ID="ddlDoorType" runat="server" name="ddlDoorType" class="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="model">Model</label>
+                <label class="col-md-4 control-label" for="doorHeight">Height (in feet) *</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="model" name="model" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="doorHeight" name="doorHeight" class="form-control input-md" runat="server"></asp:TextBox>
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="quantity">Quantity</label>
+                <label class="col-md-4 control-label" for="doorWidth">Width (in feet) *</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="quantity" name="quantity" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="doorWidth" name="doorWidth" class="form-control input-md" runat="server"></asp:TextBox>
+                </div>
+            </div>
+
+            <!-- Dropdown -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="ddlDoorMaterial">Door Material *</label>
+                <div class="col-md-4">
+                    <asp:DropDownList ID="ddlDoorMaterial" runat="server" name="ddlDoorMaterial" class="form-control" Style="width: auto"></asp:DropDownList>
+                </div>
+            </div>
+
+            <!-- Dropdown -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="ddlDoorInsulation">Door Insulation *</label>
+                <div class="col-md-4">
+                    <asp:DropDownList ID="ddlDoorInsulation" runat="server" name="ddlDoorInsulation" class="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="wattage">Wattage *</label>
+                <label class="col-md-4 control-label" for="glassPercentage">% area of door is glass *</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="wattage" name="wattage" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="glassPercentage" name="glassPercentage" class="form-control input-md" runat="server"></asp:TextBox>
                 </div>
             </div>
 
-            <!-- Textarea -->
+            <!-- Dropdown -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="purpose">Description (Purpose) *</label>
+                <label class="col-md-4 control-label" for="ddlInteriorShading">Interior Shading *</label>
                 <div class="col-md-4">
-                    <textarea id="purpose" name="purpose" class="form-control" runat="server"></textarea>
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="runTime">Run-Time (In Hours) *</label>
-                <div class="col-md-4">
-                    <asp:TextBox ID="runTime" name="runTime" class="form-control input-md" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlInteriorShading" runat="server" name="ddlInteriorShading" class="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
             </div>
 
             <!-- File Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="unitPhoto">Unit Photo *</label>
+                <label class="col-md-4 control-label" for="doorPhoto">Door Photo</label>
                 <div class="col-md-4">
-                    <asp:FileUpload ID="unitPhoto" name="unitPhoto" class="input-file" runat="server" />
+                    <asp:FileUpload ID="doorPhoto" name="doorPhoto" class="input-file" runat="server" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5 class="col-md-4 control-label"><strong>O&M Issues</strong></h5>
+            </div>
+
+            <!-- Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="radioAirGaps">Air Gaps Present? *</label>
+                <div class="col-md-4">
+                    <asp:RadioButtonList ID="radioAirGaps" RepeatLayout="Flow" RepeatDirection="Horizontal" runat="server">
+                        <asp:ListItem class="radio-inline" Value="1" Text="Yes"></asp:ListItem>
+                        <asp:ListItem class="radio-inline" Value="2" Text="No"></asp:ListItem>
+                    </asp:RadioButtonList>
+                </div>
+            </div>
+
+            <!-- Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="radioPoorAlignment">Poor Door Alignment? *</label>
+                <div class="col-md-4">
+                    <asp:RadioButtonList ID="radioPoorAlignment" RepeatLayout="Flow" RepeatDirection="Horizontal" runat="server">
+                        <asp:ListItem class="radio-inline" Value="1" Text="Yes"></asp:ListItem>
+                        <asp:ListItem class="radio-inline" Value="2" Text="No"></asp:ListItem>
+                    </asp:RadioButtonList>
+                </div>
+            </div>
+
+            <!-- Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="radioPoorStripping">Poor or Missing Weather Stripping? *</label>
+                <div class="col-md-4">
+                    <asp:RadioButtonList ID="radioPoorStripping" RepeatLayout="Flow" RepeatDirection="Horizontal" runat="server">
+                        <asp:ListItem class="radio-inline" Value="1" Text="Yes"></asp:ListItem>
+                        <asp:ListItem class="radio-inline" Value="2" Text="No"></asp:ListItem>
+                    </asp:RadioButtonList>
+                </div>
+            </div>
+
+            <!-- Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="radioPoorCaulking">Poor or Missing Caulking? *</label>
+                <div class="col-md-4">
+                    <asp:RadioButtonList ID="radioPoorCaulking" RepeatLayout="Flow" RepeatDirection="Horizontal" runat="server">
+                        <asp:ListItem class="radio-inline" Value="1" Text="Yes"></asp:ListItem>
+                        <asp:ListItem class="radio-inline" Value="2" Text="No"></asp:ListItem>
+                    </asp:RadioButtonList>
+                </div>
+            </div>
+
+            <!-- Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="radioDoorCloserWorking">Door Closer in Good Working Order? *</label>
+                <div class="col-md-4">
+                    <asp:RadioButtonList ID="radioDoorCloserWorking" RepeatLayout="Flow" RepeatDirection="Horizontal" runat="server">
+                        <asp:ListItem class="radio-inline" Value="1" Text="Yes"></asp:ListItem>
+                        <asp:ListItem class="radio-inline" Value="2" Text="No"></asp:ListItem>
+                    </asp:RadioButtonList>
                 </div>
             </div>
 
             <!-- Textarea -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="notes">Notes</label>
+                <label class="col-md-4 control-label" for="notes">Door Notes or Concerns</label>
                 <div class="col-md-4">
                     <textarea id="notes" name="notes" class="form-control" runat="server"></textarea>
                 </div>
@@ -294,7 +373,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submitButtons"></label>
                 <div class="col-md-8">
-                    <asp:Button ID="saveButton" name="saveButton" CssClass="btn btn-success" runat="server" Text="Save" OnClick="saveButton_Click" />
+                    <asp:Button ID="addButton" name="addButton" CssClass="btn btn-success" runat="server" Text="Add" OnClick="addButton_Click" />
                     <asp:Button ID="cancelButton" name="cancelButton" CssClass="btn btn-danger" runat="server" Text="Cancel" OnClick="cancelButton_Click" />
                 </div>
             </div>

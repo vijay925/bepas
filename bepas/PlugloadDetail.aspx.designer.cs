@@ -10,7 +10,7 @@
 namespace bepas {
     
     
-    public partial class MiscInventoryDetail {
+    public partial class PlugloadDetail {
         
         /// <summary>
         /// SuccessPanel control.
@@ -103,40 +103,31 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.GridView gvRoomList;
         
         /// <summary>
-        /// inventoryName control.
+        /// plugloadName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inventoryName;
+        protected global::System.Web.UI.WebControls.TextBox plugloadName;
         
         /// <summary>
-        /// gvMiscInventoryList control.
+        /// gvPlugloadList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMiscInventoryList;
+        protected global::System.Web.UI.WebControls.GridView gvPlugloadList;
         
         /// <summary>
-        /// make control.
+        /// ddlPlugloadType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox make;
-        
-        /// <summary>
-        /// model control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox model;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlugloadType;
         
         /// <summary>
         /// quantity control.
@@ -157,31 +148,31 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.TextBox wattage;
         
         /// <summary>
-        /// purpose control.
+        /// radioOnStandby control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea purpose;
+        protected global::System.Web.UI.WebControls.RadioButtonList radioOnStandby;
         
         /// <summary>
-        /// runTime control.
+        /// controls control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox runTime;
+        protected global::System.Web.UI.WebControls.TextBox controls;
         
         /// <summary>
-        /// unitPhoto control.
+        /// plugloadPhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload unitPhoto;
+        protected global::System.Web.UI.WebControls.FileUpload plugloadPhoto;
         
         /// <summary>
         /// notes control.
@@ -193,13 +184,22 @@ namespace bepas {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea notes;
         
         /// <summary>
-        /// saveButton control.
+        /// radioPlugloadOperating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveButton;
+        protected global::System.Web.UI.WebControls.RadioButtonList radioPlugloadOperating;
+        
+        /// <summary>
+        /// addButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addButton;
         
         /// <summary>
         /// cancelButton control.

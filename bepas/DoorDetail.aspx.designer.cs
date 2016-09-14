@@ -10,7 +10,7 @@
 namespace bepas {
     
     
-    public partial class MiscInventoryDetail {
+    public partial class DoorDetail {
         
         /// <summary>
         /// SuccessPanel control.
@@ -103,85 +103,157 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.GridView gvRoomList;
         
         /// <summary>
-        /// inventoryName control.
+        /// doorId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inventoryName;
+        protected global::System.Web.UI.WebControls.TextBox doorId;
         
         /// <summary>
-        /// gvMiscInventoryList control.
+        /// doorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMiscInventoryList;
+        protected global::System.Web.UI.WebControls.TextBox doorName;
         
         /// <summary>
-        /// make control.
+        /// gvDoorList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox make;
+        protected global::System.Web.UI.WebControls.GridView gvDoorList;
         
         /// <summary>
-        /// model control.
+        /// ddlDoorOrientation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox model;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDoorOrientation;
         
         /// <summary>
-        /// quantity control.
+        /// ddlDoorType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox quantity;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDoorType;
         
         /// <summary>
-        /// wattage control.
+        /// doorHeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox wattage;
+        protected global::System.Web.UI.WebControls.TextBox doorHeight;
         
         /// <summary>
-        /// purpose control.
+        /// doorWidth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea purpose;
+        protected global::System.Web.UI.WebControls.TextBox doorWidth;
         
         /// <summary>
-        /// runTime control.
+        /// ddlDoorMaterial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox runTime;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDoorMaterial;
         
         /// <summary>
-        /// unitPhoto control.
+        /// ddlDoorInsulation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload unitPhoto;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDoorInsulation;
+        
+        /// <summary>
+        /// glassPercentage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox glassPercentage;
+        
+        /// <summary>
+        /// ddlInteriorShading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlInteriorShading;
+        
+        /// <summary>
+        /// doorPhoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload doorPhoto;
+        
+        /// <summary>
+        /// radioAirGaps control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioAirGaps;
+        
+        /// <summary>
+        /// radioPoorAlignment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioPoorAlignment;
+        
+        /// <summary>
+        /// radioPoorStripping control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioPoorStripping;
+        
+        /// <summary>
+        /// radioPoorCaulking control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioPoorCaulking;
+        
+        /// <summary>
+        /// radioDoorCloserWorking control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioDoorCloserWorking;
         
         /// <summary>
         /// notes control.
@@ -193,13 +265,13 @@ namespace bepas {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea notes;
         
         /// <summary>
-        /// saveButton control.
+        /// addButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveButton;
+        protected global::System.Web.UI.WebControls.Button addButton;
         
         /// <summary>
         /// cancelButton control.
