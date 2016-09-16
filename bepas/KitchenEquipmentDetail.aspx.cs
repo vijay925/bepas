@@ -113,6 +113,7 @@ namespace bepas
             roomName.Text = String.Empty;
             equipmentId.Text = String.Empty;
             equipmentName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -133,6 +134,7 @@ namespace bepas
             roomName.Text = String.Empty;
             equipmentId.Text = String.Empty;
             equipmentName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -151,6 +153,7 @@ namespace bepas
             SuccessPanel.Visible = false;
             equipmentId.Text = String.Empty;
             equipmentName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -179,8 +182,32 @@ namespace bepas
             equipmentId.Text = equipmentIdByUserLocal;
             equipmentName.Text = equipmentNameLocal;
 
-           //LoadEquipmentList(Convert.ToInt32(equipmentUidLocal));
+            LoadInputFields(Convert.ToInt32(equipmentUidLocal));
         }
+
+        private void LoadInputFields(int equipmentUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadKitchenEquipmentDetail", "@equipmentUid", equipmentUid);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = dataSet.Tables[0].Rows[0];
+                ddlEquipmentType.SelectedValue = dr["equipmentTypeId"].ToString();
+                ddlFuelType.SelectedValue = dr["fuelTypeId"].ToString();
+                electricWattage.Text = dr["electricWattage"].ToString();
+                gasBtuh.Text = dr["gasBtuh"].ToString();
+                ddlControlledBy.SelectedValue = dr["controlledById"].ToString();
+                hoursOn.Text = dr["hoursOn"].ToString();
+                radioEquipmentSeals.SelectedValue = dr["equipmentSealsId"].ToString();
+                radioDoorCloser.SelectedValue = dr["doorCloserId"].ToString();
+                radioFiltersClean.SelectedValue = dr["filtersCleanId"].ToString();
+                notes.Value = dr["notes"].ToString();
+            }
+            else
+            {
+                ClearInputFields();
+            }
+        } //LoadInputFields()
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)
         {
@@ -258,6 +285,20 @@ namespace bepas
             } // if(page valid)
 
         } //addButton_Click()
+
+        private void ClearInputFields()
+        {
+            ddlEquipmentType.SelectedValue = "-1";
+            ddlFuelType.SelectedValue = "-1";
+            electricWattage.Text = String.Empty;
+            gasBtuh.Text = String.Empty;
+            ddlControlledBy.SelectedValue = "-1";
+            hoursOn.Text = String.Empty;
+            radioEquipmentSeals.SelectedIndex = -1;
+            radioDoorCloser.SelectedIndex = -1;
+            radioFiltersClean.SelectedIndex = -1;
+            notes.Value = String.Empty;
+        }
 
     } //Webform
 } //namespace bepas

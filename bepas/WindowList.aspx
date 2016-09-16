@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WindowList.aspx.cs" Inherits="bepas.WindowList" %>
+
 <asp:Content ID="WindowList" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-default">
         <div class="panel-heading h4">Window List</div>
@@ -170,11 +171,30 @@
             <asp:Button ID="addButton" CssClass="btn btn-info btn-md pull-right" runat="server" Text="Add new" OnClick="addButton_Click" />
             <br />
             <br />
-
-            <!--  gridview goes here --> 
-
-
-
+            <asp:GridView ID="gvWindowList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                GridLines="None" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField DataField="windowIdByUser" HeaderText="Window ID" />
+                    <asp:BoundField DataField="windowName" HeaderText="Name" />
+                    <asp:BoundField DataField="windowTypeText" HeaderText="Type" />
+                    <asp:BoundField DataField="windowOrientationText" HeaderText="Orientation" />
+                    <asp:BoundField DataField="windowHeight" HeaderText="Height" />
+                    <asp:BoundField DataField="windowWidth" HeaderText="Width" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActiveWindow"
+                                Text="Active" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewWindow"
+                                Text="View/Edit" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <RowStyle CssClass="cursor-pointer" />
+            </asp:GridView>
 
         </div>
     </div>

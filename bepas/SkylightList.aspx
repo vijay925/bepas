@@ -172,11 +172,29 @@
             <br />
             <br />
 
-            <!--  gridview goes here -->
-
-
-
-
+            <asp:GridView ID="gvSkylightList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                GridLines="None" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField DataField="skylightIdByUser" HeaderText="Skylight ID" />
+                    <asp:BoundField DataField="skylightName" HeaderText="Name" />
+                    <asp:BoundField DataField="skylightTypeText" HeaderText="Type" />
+                    <asp:BoundField DataField="skylightOrientationText" HeaderText="Orientation" />
+                    <asp:BoundField DataField="numberOfSkylights" HeaderText="Quantity" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActiveSkylight"
+                                Text="Active" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewSkylight"
+                                Text="View/Edit" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <RowStyle CssClass="cursor-pointer" />
+            </asp:GridView>
         </div>
     </div>
 

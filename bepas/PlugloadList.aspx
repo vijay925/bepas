@@ -172,11 +172,28 @@
             <br />
             <br />
 
-            <!--  gridview goes here -->
-
-
-
-
+            <asp:GridView ID="gvPlugloadList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                GridLines="None" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField DataField="plugloadName" HeaderText="Name (Model/Make)" />
+                    <asp:BoundField DataField="plugloadTypeText" HeaderText="Type" />
+                    <asp:BoundField DataField="quantity" HeaderText="Quantity" />
+                    <asp:BoundField DataField="wattage" HeaderText="Wattage" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActivePlugload"
+                                Text="Active" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewPlugload"
+                                Text="View/Edit" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <RowStyle CssClass="cursor-pointer" />
+            </asp:GridView>
         </div>
     </div>
 

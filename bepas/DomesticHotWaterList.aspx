@@ -172,11 +172,29 @@
             <br />
             <br />
 
-            <!--  gridview goes here -->
-
-
-
-
+            <asp:GridView ID="gvHotWaterList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                GridLines="None" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField DataField="waterIdByUser" HeaderText="Hot Water ID" />
+                    <asp:BoundField DataField="waterName" HeaderText="Name" />
+                    <asp:BoundField DataField="heaterTypeText" HeaderText="Type" />
+                    <asp:BoundField DataField="storageSize" HeaderText="Size (Gallons)" />
+                    <asp:BoundField DataField="fuelTypeText" HeaderText="Fuel Type" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActiveHotWater"
+                                Text="Active" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewHotWater"
+                                Text="View/Edit" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <RowStyle CssClass="cursor-pointer" />
+            </asp:GridView>
         </div>
     </div>
 

@@ -10,7 +10,7 @@
 namespace bepas {
     
     
-    public partial class NewSpecialtyKitchenEquipment {
+    public partial class NewKitchenEquipment {
         
         /// <summary>
         /// SuccessPanel control.

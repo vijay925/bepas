@@ -172,11 +172,29 @@
             <br />
             <br />
 
-            <!--  gridview goes here -->
-
-
-
-
+            <asp:GridView ID="gvMiscInventoryList" UseAccessibleHeader="true" CssClass="table table-striped table-hover"
+                GridLines="None" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField DataField="name" HeaderText="Name" />
+                    <asp:BoundField DataField="make" HeaderText="Make" />
+                    <asp:BoundField DataField="model" HeaderText="Model" />
+                    <asp:BoundField DataField="quantity" HeaderText="Quantity" />
+                    <asp:BoundField DataField="wattage" HeaderText="Wattage" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActiveMiscInventory"
+                                Text="Active" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewMiscInventory"
+                                Text="View/Edit" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <RowStyle CssClass="cursor-pointer" />
+            </asp:GridView>
         </div>
     </div>
 

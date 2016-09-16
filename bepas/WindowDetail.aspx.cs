@@ -139,6 +139,7 @@ namespace bepas
             roomName.Text = String.Empty;
             windowId.Text = String.Empty;
             windowName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -159,6 +160,7 @@ namespace bepas
             roomName.Text = String.Empty;
             windowId.Text = String.Empty;
             windowName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -177,6 +179,7 @@ namespace bepas
             SuccessPanel.Visible = false;
             windowId.Text = String.Empty;
             windowName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -204,8 +207,35 @@ namespace bepas
             ViewState["roomUid"] = windowUidLocal;
             windowId.Text = windowIdByUserLocal;
             windowName.Text = windowNameLocal;
-            //loadinputs(Convert.ToInt32(roomUidLocal));
+            LoadInputFields(Convert.ToInt32(windowUidLocal));
         }
+
+        private void LoadInputFields(int windowUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadWindowDetail", "@windowUid", windowUid);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = dataSet.Tables[0].Rows[0];
+                ddlWindowOrientation.SelectedValue = dr["windowOrientationId"].ToString();
+                ddlWindowType.SelectedValue = dr["windowTypeId"].ToString();
+                windowHeight.Text = dr["windowHeight"].ToString();
+                windowWidth.Text = dr["windowWidth"].ToString();
+                ddlGlazing.SelectedValue = dr["glazingId"].ToString();
+                ddlCoating.SelectedValue = dr["coatingId"].ToString();
+                ddlInteriorShading.SelectedValue = dr["interiorShadingId"].ToString();
+                ddlExteriorShading.SelectedValue = dr["exteriorShadingId"].ToString();
+                radioDamaged.SelectedValue = dr["damagedId"].ToString();
+                radioPoorCaulking.SelectedValue = dr["poorCaulkingId"].ToString();
+                radioPoorAlignment.SelectedValue = dr["poorAlignmentId"].ToString();
+                radioPoorSeals.SelectedValue = dr["poorSealsId"].ToString();
+                notes.Value = dr["notes"].ToString();
+            }
+            else
+            {
+                ClearInputFields();
+            }
+        } //LoadInputFields()
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)
         {
@@ -288,6 +318,23 @@ namespace bepas
             } // if(page valid)
 
         } //addButton_Click()
+
+        private void ClearInputFields()
+        {
+            ddlWindowOrientation.SelectedValue = "-1";
+            ddlWindowType.SelectedValue = "-1";
+            windowHeight.Text = String.Empty;
+            windowWidth.Text = String.Empty;
+            ddlGlazing.SelectedValue = "-1";
+            ddlCoating.SelectedValue = "-1";
+            ddlInteriorShading.SelectedValue = "-1";
+            ddlExteriorShading.SelectedValue = "-1";
+            radioDamaged.SelectedIndex = -1;
+            radioPoorCaulking.SelectedIndex = -1;
+            radioPoorAlignment.SelectedIndex = -1;
+            radioPoorSeals.SelectedIndex = -1;
+            notes.Value = String.Empty;
+        }
 
     } //Webform
 } //namespace bepas

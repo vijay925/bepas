@@ -63,6 +63,7 @@ namespace bepas
             roomId.Text = String.Empty;
             roomName.Text = String.Empty;
             inventoryName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -82,6 +83,7 @@ namespace bepas
             roomId.Text = String.Empty;
             roomName.Text = String.Empty;
             inventoryName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -99,6 +101,7 @@ namespace bepas
         {
             SuccessPanel.Visible = false;
             inventoryName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -121,36 +124,26 @@ namespace bepas
             string inventoryUidLocal = argument[0];
             string inventoryNameLocal = argument[1];
 
-            Response.Write(inventoryUidLocal);
-            Response.Write(inventoryNameLocal);
-
             ViewState["inventoryUid"] = inventoryUidLocal;
             inventoryName.Text = inventoryNameLocal;
-            //LoadInputFields(Convert.ToInt32(inventoryUidLocal));
+            LoadInputFields(Convert.ToInt32(inventoryUidLocal));
         }
 
-        private void LoadInputFields(int buildingUid)
+        private void LoadInputFields(int inventoryUid)
         {
-            DataSet dataSet = GetDataUsingSp("spLoadBuildingGeneralInfo", "@buildingUid", buildingUid);
+            DataSet dataSet = GetDataUsingSp("spLoadMiscInventoryDetail", "@inventoryUid", inventoryUid);
 
             if (dataSet.Tables[0].Rows.Count > 0)
             {
                 DataRow dr = dataSet.Tables[0].Rows[0];
-                //yearBuilt.Text = dr["yearBuilt"].ToString(); ;
-                //ddlBuildingEndUse.SelectedValue = dr["buildingEndUseId"].ToString();
-                //radioBoxedShape.SelectedValue = dr["boxedShapeId"].ToString();
-                //grossAreaPerFloor.Text = dr["grossAreaPerFloor"].ToString();
-                //buildingHeight.Text = dr["buildingHeight"].ToString();
-                //buildingWidth.Text = dr["buildingWidth"].ToString();
-                //buildingLength.Text = dr["buildingLength"].ToString();
-                //numberOfHVAC.Text = dr["numberOfHVAC"].ToString();
-                //radioOwnedOrLeased.SelectedValue = dr["ownedOrLeasedId"].ToString();
-                //numberOfFloors.Text = dr["numberOfFloors"].ToString();
-                //radioPreviousAudit.SelectedValue = dr["previousAuditId"].ToString();
-                //previousAuditDate.Text = dr["previousAuditDate"].ToString();
-                //meterId.Text = dr["meterId"].ToString();
-                //radioMeteredIndividually.SelectedValue = dr["meteredIndividuallyId"].ToString();
-                //notes.Value = dr["notes"].ToString();
+                inventoryName.Text = dr["name"].ToString();
+                make.Text = dr["make"].ToString();
+                model.Text = dr["model"].ToString();
+                quantity.Text = dr["quantity"].ToString();
+                quantity.Text = dr["wattage"].ToString();
+                purpose.Value = dr["purpose"].ToString();
+                runTime.Text = dr["runTime"].ToString();
+                notes.Value = dr["notes"].ToString();
             }
             else
             {

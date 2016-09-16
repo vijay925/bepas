@@ -130,6 +130,7 @@ namespace bepas
             roomName.Text = String.Empty;
             doorId.Text = String.Empty;
             doorName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -150,6 +151,7 @@ namespace bepas
             roomName.Text = String.Empty;
             doorId.Text = String.Empty;
             doorName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -168,6 +170,7 @@ namespace bepas
             SuccessPanel.Visible = false;
             doorId.Text = String.Empty;
             doorName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -195,8 +198,36 @@ namespace bepas
             ViewState["roomUid"] = doorUidLocal;
             doorId.Text = doorIdByUserLocal;
             doorName.Text = doorNameLocal;
-            //loadinputs(Convert.ToInt32(roomUidLocal));
+            LoadInputFields(Convert.ToInt32(doorUidLocal));
         }
+
+        private void LoadInputFields(int doorUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadDoorDetail", "@doorUid", doorUid);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = dataSet.Tables[0].Rows[0];
+                ddlDoorOrientation.SelectedValue = dr["doorOrientationId"].ToString();
+                ddlDoorType.SelectedValue = dr["doorTypeId"].ToString();
+                doorHeight.Text = dr["doorHeight"].ToString();
+                doorWidth.Text = dr["doorWidth"].ToString();
+                ddlDoorMaterial.SelectedValue = dr["doorMaterialId"].ToString();
+                ddlDoorInsulation.SelectedValue = dr["doorInsulationId"].ToString();
+                glassPercentage.Text = dr["glassPercentage"].ToString();
+                ddlInteriorShading.SelectedValue = dr["interiorShadingId"].ToString();
+                radioAirGaps.SelectedValue = dr["airGapsId"].ToString();
+                radioPoorAlignment.SelectedValue = dr["poorAlignmentId"].ToString();
+                radioPoorStripping.SelectedValue = dr["poorStrippingId"].ToString();
+                radioPoorCaulking.SelectedValue = dr["poorCaulkingId"].ToString();
+                radioDoorCloserWorking.SelectedValue = dr["doorCloserWorkingId"].ToString();
+                notes.Value = dr["notes"].ToString();
+            }
+            else
+            {
+                ClearInputFields();
+            }
+        } //LoadInputFields()
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)
         {
@@ -280,6 +311,24 @@ namespace bepas
             } // if(page valid)
 
         } //addButton_Click()
+
+        private void ClearInputFields()
+        {
+            ddlDoorOrientation.SelectedValue = "-1";
+            ddlDoorType.SelectedValue = "-1";
+            doorHeight.Text = String.Empty;
+            doorWidth.Text = String.Empty;
+            ddlDoorMaterial.SelectedValue = "-1";
+            ddlDoorInsulation.SelectedValue = "-1";
+            glassPercentage.Text = String.Empty;
+            ddlInteriorShading.SelectedValue = "-1";
+            radioAirGaps.SelectedIndex = -1;
+            radioPoorAlignment.SelectedIndex = -1;
+            radioPoorStripping.SelectedIndex = -1;
+            radioPoorCaulking.SelectedIndex = -1;
+            radioDoorCloserWorking.SelectedIndex = -1;
+            notes.Value = String.Empty;
+        }
 
     } //Webform
 } //namespace bepas

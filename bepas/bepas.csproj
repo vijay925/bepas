@@ -228,14 +228,14 @@
     <Content Include="NewPlugload.aspx" />
     <Content Include="NewSkylight.aspx" />
     <Content Include="NewDomesticHotWater.aspx" />
-    <Content Include="NewSpecialtyKitchenEquipment.aspx" />
+    <Content Include="NewKitchenEquipment.aspx" />
     <Content Include="NewMiscInventory.aspx" />
     <Content Include="ThermostatList.aspx" />
     <Content Include="DoorList.aspx" />
     <Content Include="PlugloadList.aspx" />
     <Content Include="SkylightList.aspx" />
     <Content Include="DomesticHotWaterList.aspx" />
-    <Content Include="SpecialtyKitchenEquipmentList.aspx" />
+    <Content Include="KitchenEquipmentList.aspx" />
     <Content Include="MiscInventoryList.aspx" />
     <Content Include="SiteExteriorLighting.aspx" />
     <Content Include="HvacList.aspx" />
@@ -572,12 +572,12 @@
     <Compile Include="NewDomesticHotWater.aspx.designer.cs">
       <DependentUpon>NewDomesticHotWater.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NewSpecialtyKitchenEquipment.aspx.cs">
-      <DependentUpon>NewSpecialtyKitchenEquipment.aspx</DependentUpon>
+    <Compile Include="NewKitchenEquipment.aspx.cs">
+      <DependentUpon>NewKitchenEquipment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NewSpecialtyKitchenEquipment.aspx.designer.cs">
-      <DependentUpon>NewSpecialtyKitchenEquipment.aspx</DependentUpon>
+    <Compile Include="NewKitchenEquipment.aspx.designer.cs">
+      <DependentUpon>NewKitchenEquipment.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewMiscInventory.aspx.cs">
       <DependentUpon>NewMiscInventory.aspx</DependentUpon>
@@ -621,12 +621,12 @@
     <Compile Include="DomesticHotWaterList.aspx.designer.cs">
       <DependentUpon>DomesticHotWaterList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SpecialtyKitchenEquipmentList.aspx.cs">
-      <DependentUpon>SpecialtyKitchenEquipmentList.aspx</DependentUpon>
+    <Compile Include="KitchenEquipmentList.aspx.cs">
+      <DependentUpon>KitchenEquipmentList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SpecialtyKitchenEquipmentList.aspx.designer.cs">
-      <DependentUpon>SpecialtyKitchenEquipmentList.aspx</DependentUpon>
+    <Compile Include="KitchenEquipmentList.aspx.designer.cs">
+      <DependentUpon>KitchenEquipmentList.aspx</DependentUpon>
     </Compile>
     <Compile Include="MiscInventoryList.aspx.cs">
       <DependentUpon>MiscInventoryList.aspx</DependentUpon>

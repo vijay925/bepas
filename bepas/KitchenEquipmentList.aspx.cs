@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace bepas
 {
-    public partial class SpecialtyKitchenEquipmentList : System.Web.UI.Page
+    public partial class KitchenEquipmentList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,7 +43,15 @@ namespace bepas
             gvRoomList.DataSource = dataSet;
             gvRoomList.DataBind();
             gvRoomList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadBuildingList()
+        } //LoadRoomList()
+
+        private void LoadKitchenEquipmentList(int roomUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadKitchenEquipmentList", "@roomUid", roomUid);
+            gvEquipmentList.DataSource = dataSet;
+            gvEquipmentList.DataBind();
+            gvEquipmentList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadKitchenEquipmentList()
 
 
         protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
@@ -90,7 +98,7 @@ namespace bepas
             roomId.Text = argument[1];
             roomName.Text = argument[2];
 
-            //LoadThermostatList(Convert.ToInt32(roomUid));
+            LoadKitchenEquipmentList(Convert.ToInt32(roomUid));
         }
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)
@@ -120,7 +128,7 @@ namespace bepas
 
         protected void addButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/NewSpecialtyKitchenEquipment.aspx");
+            Response.Redirect("~/NewKitchenEquipment.aspx");
         }
 
 

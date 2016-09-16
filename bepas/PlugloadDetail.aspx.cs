@@ -94,6 +94,7 @@ namespace bepas
             roomId.Text = String.Empty;
             roomName.Text = String.Empty;
             plugloadName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -113,6 +114,7 @@ namespace bepas
             roomId.Text = String.Empty;
             roomName.Text = String.Empty;
             plugloadName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -130,6 +132,7 @@ namespace bepas
         {
             SuccessPanel.Visible = false;
             plugloadName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -155,8 +158,29 @@ namespace bepas
 
             ViewState["roomUid"] = plugloadUidLocal;
             plugloadName.Text = plugloadNameLocal;
-            //loadinputs(Convert.ToInt32(roomUidLocal));
+            LoadInputFields(Convert.ToInt32(plugloadUidLocal));
         }
+
+        private void LoadInputFields(int plugloadUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadPlugloadDetail", "@plugloadUid", plugloadUid);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = dataSet.Tables[0].Rows[0];
+                ddlPlugloadType.SelectedValue = dr["plugloadTypeId"].ToString();
+                quantity.Text = dr["quantity"].ToString();
+                wattage.Text = dr["wattage"].ToString();
+                radioOnStandby.SelectedValue = dr["onStandbyId"].ToString();
+                controls.Text = dr["controls"].ToString();
+                notes.Value = dr["notes"].ToString();
+                radioPlugloadOperating.SelectedValue = dr["plugloadOperatingId"].ToString();
+            }
+            else
+            {
+                ClearInputFields();
+            }
+        } //LoadInputFields()
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)
         {
@@ -224,6 +248,17 @@ namespace bepas
             } // if(page valid)
 
         } //addButton_Click()
+
+        private void ClearInputFields()
+        {
+            ddlPlugloadType.SelectedValue = "-1";
+            quantity.Text = String.Empty;
+            wattage.Text = String.Empty;
+            radioOnStandby.SelectedIndex = -1;
+            controls.Text = String.Empty;
+            notes.Value = String.Empty;
+            radioPlugloadOperating.SelectedIndex = -1;
+        }
 
     } //Webform
 } //namespace bepas

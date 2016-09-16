@@ -42,7 +42,15 @@ namespace bepas
             gvRoomList.DataSource = dataSet;
             gvRoomList.DataBind();
             gvRoomList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadBuildingList()
+        } //LoadRoomList()
+
+        private void LoadHotWaterList(int roomUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadHotWaterList", "@roomUid", roomUid);
+            gvHotWaterList.DataSource = dataSet;
+            gvHotWaterList.DataBind();
+            gvHotWaterList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadHotWaterList()
 
 
         protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
@@ -89,7 +97,7 @@ namespace bepas
             roomId.Text = argument[1];
             roomName.Text = argument[2];
 
-            //LoadThermostatList(Convert.ToInt32(roomUid));
+            LoadHotWaterList(Convert.ToInt32(roomUid));
         }
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)

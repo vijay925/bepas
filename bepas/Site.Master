@@ -104,7 +104,7 @@
                                 <li><a runat="server" href="~/PlugloadList.aspx">Plugloads</a></li>
                                 <li><a runat="server" href="~/SkylightList.aspx">Skylights – Envelope Fenestration</a></li>
                                 <li><a runat="server" href="~/DomesticHotWaterList.aspx">Domestic Hot Water Form</a></li>
-                                <li><a runat="server" href="~/SpecialtyKitchenEquipmentList.aspx">Specialty Kitchen Equipment</a></li>
+                                <li><a runat="server" href="~/KitchenEquipmentList.aspx">Specialty Kitchen Equipment</a></li>
                                 <li><a runat="server" href="~/MiscInventoryList.aspx">Misc. Inventory</a></li>
                             </ul>
                         </li>

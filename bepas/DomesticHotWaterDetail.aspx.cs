@@ -112,6 +112,7 @@ namespace bepas
             roomName.Text = String.Empty;
             waterId.Text = String.Empty;
             waterName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -132,6 +133,7 @@ namespace bepas
             roomName.Text = String.Empty;
             waterId.Text = String.Empty;
             waterName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -150,6 +152,7 @@ namespace bepas
             SuccessPanel.Visible = false;
             waterId.Text = String.Empty;
             waterName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -178,8 +181,37 @@ namespace bepas
             waterId.Text = wateIdByUserLocal;
             waterName.Text = waterNameLocal;
 
-            //LoadinputsList(Convert.ToInt32(roomUidLocal));
+            LoadInputFields(Convert.ToInt32(waterUidLocal));
         }
+
+        private void LoadInputFields(int waterUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadHotWaterDetail", "@waterUid", waterUid);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = dataSet.Tables[0].Rows[0];
+                ddlHeaterType.SelectedValue = dr["heaterTypeId"].ToString();
+                storageSize.Text = dr["storageSize"].ToString();
+                ddlFuelType.SelectedValue = dr["fuelTypeId"].ToString();
+                electricWattage.Text = dr["electricWattage"].ToString();
+                gasBtuh.Text = dr["gasBtuh"].ToString();
+                efficiencyRating.Text = dr["efficiencyRating"].ToString();
+                radioInsulationJacket.SelectedValue = dr["insulationJacketId"].ToString();
+                insulationRValue.Text = dr["insulationRValue"].ToString();
+                averageTemperature.Text = dr["averageTemperature"].ToString();
+                radioPipesInsulated.SelectedValue = dr["pipesInsulatedId"].ToString();
+                radioRecirculationPump.SelectedValue = dr["recirculationPumpId"].ToString();
+                ddlControlType.SelectedValue = dr["controlTypeId"].ToString();
+                setpointTemperature.Text = dr["setpointTemperature"].ToString();
+                avgRecirculationTime.Text = dr["avgRecirculationTime"].ToString();
+                notes.Value = dr["notes"].ToString();
+            }
+            else
+            {
+                ClearInputFields();
+            }
+        } //LoadInputFields()
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)
         {
@@ -262,6 +294,25 @@ namespace bepas
             } // if(page valid)
 
         } //addButton_Click()
+
+        private void ClearInputFields()
+        {
+            ddlHeaterType.SelectedValue = "-1";
+            storageSize.Text = String.Empty;
+            ddlFuelType.SelectedValue = "-1";
+            electricWattage.Text = String.Empty;
+            gasBtuh.Text = String.Empty;
+            efficiencyRating.Text = String.Empty;
+            radioInsulationJacket.SelectedIndex = -1;
+            insulationRValue.Text = String.Empty;
+            averageTemperature.Text = String.Empty;
+            radioPipesInsulated.SelectedIndex = -1;
+            radioRecirculationPump.SelectedIndex = -1;
+            ddlControlType.SelectedValue = "-1";
+            setpointTemperature.Text = String.Empty;
+            avgRecirculationTime.Text = String.Empty;
+            notes.Value = String.Empty;
+        }
 
     } //Webform
 } //namespace bepas

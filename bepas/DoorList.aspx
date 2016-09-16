@@ -172,11 +172,31 @@
             <br />
             <br />
 
-            <!--  gridview goes here -->
-
-
-
-
+            <asp:GridView ID="gvDoorList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                GridLines="None" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField DataField="doorIdByUser" HeaderText="Door ID" />
+                    <asp:BoundField DataField="doorName" HeaderText="Name" />
+                    <asp:BoundField DataField="doorTypeText" HeaderText="Type" />
+                    <asp:BoundField DataField="doorOrientationText" HeaderText="Orientation" />
+                    <asp:BoundField DataField="doorMaterialText" HeaderText="Material" />
+                    <asp:BoundField DataField="doorHeight" HeaderText="Height" />
+                    <asp:BoundField DataField="doorWidth" HeaderText="Width" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActiveDoor"
+                                Text="Active" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewDoor"
+                                Text="View/Edit" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <RowStyle CssClass="cursor-pointer" />
+            </asp:GridView>
         </div>
     </div>
 

@@ -10,7 +10,7 @@
 namespace bepas {
     
     
-    public partial class SpecialtyKitchenEquipmentList {
+    public partial class KitchenEquipmentList {
         
         /// <summary>
         /// siteId control.
@@ -101,5 +101,14 @@ namespace bepas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button addButton;
+        
+        /// <summary>
+        /// gvEquipmentList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvEquipmentList;
     }
 }

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SpecialtyKitchenEquipmentList.aspx.cs" Inherits="bepas.SpecialtyKitchenEquipmentList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="KitchenEquipmentList.aspx.cs" Inherits="bepas.KitchenEquipmentList" %>
 
-<asp:Content ID="SpecialtyKitchenEquipmentList" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="KitchenEquipmentList" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-default">
         <div class="panel-heading h4">Specialty Kitchen Equipment List</div>
         <div class="panel-body">
@@ -172,10 +172,29 @@
             <br />
             <br />
 
-            <!--  gridview goes here -->
-
-
-
+            <asp:GridView ID="gvEquipmentList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                GridLines="None" AutoGenerateColumns="false" runat="server">
+                <Columns>
+                    <asp:BoundField DataField="equipmentIdByUser" HeaderText="Equipment ID" />
+                    <asp:BoundField DataField="equipmentName" HeaderText="Name" />
+                    <asp:BoundField DataField="equipmentTypeText" HeaderText="Type" />
+                    <asp:BoundField DataField="fuelTypeText" HeaderText="Fuel Type" />
+                    <asp:BoundField DataField="controlledByText" HeaderText="Controled By" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActiveKitchenEquipment"
+                                Text="Active" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewKitchenEquipment"
+                                Text="View/Edit" CommandArgument='<%#Eval("uid")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <RowStyle CssClass="cursor-pointer" />
+            </asp:GridView>
 
         </div>
     </div>

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NewSpecialtyKitchenEquipment.aspx.cs" Inherits="bepas.NewSpecialtyKitchenEquipment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NewKitchenEquipment.aspx.cs" Inherits="bepas.NewKitchenEquipment" %>
 
-<asp:Content ID="NewSpecialtyKitchenEquipment" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="NewKitchenEquipment" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-default">
         <div class="panel-heading h4">Add New Specialty Kitchen Equipment</div>
 

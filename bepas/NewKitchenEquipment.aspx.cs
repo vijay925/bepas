@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace bepas
 {
-    public partial class NewSpecialtyKitchenEquipment : System.Web.UI.Page
+    public partial class NewKitchenEquipment : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

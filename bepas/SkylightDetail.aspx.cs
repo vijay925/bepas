@@ -130,6 +130,7 @@ namespace bepas
             roomName.Text = String.Empty;
             skylightId.Text = String.Empty;
             skylightName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -150,6 +151,7 @@ namespace bepas
             roomName.Text = String.Empty;
             skylightId.Text = String.Empty;
             skylightName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -168,6 +170,7 @@ namespace bepas
             SuccessPanel.Visible = false;
             skylightId.Text = String.Empty;
             skylightName.Text = String.Empty;
+            ClearInputFields();
 
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
@@ -195,8 +198,31 @@ namespace bepas
             ViewState["roomUid"] = skylightUidLocal;
             skylightId.Text = skylightIdByUserLocal;
             skylightName.Text = skylightNameLocal;
-            //loadinputs(Convert.ToInt32(roomUidLocal));
+            LoadInputFields(Convert.ToInt32(skylightUidLocal));
         }
+
+        private void LoadInputFields(int skylightUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadSkylightDetail", "@skylightUid", skylightUid);
+
+            if (dataSet.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = dataSet.Tables[0].Rows[0];
+                ddlSkylightOrientation.SelectedValue = dr["skylightOrientationId"].ToString();
+                ddlSkylightType.SelectedValue = dr["skylightTypeId"].ToString();
+                numberOfSkylights.Text = dr["numberOfSkylights"].ToString();
+                skylightLength.Text = dr["skylightLength"].ToString();
+                skylightWidth.Text = dr["skylightWidth"].ToString();
+                ddlGlazing.SelectedValue = dr["glazingId"].ToString();
+                ddlCoating.SelectedValue = dr["coatingId"].ToString();
+                ddlExteriorShading.SelectedValue = dr["exteriorShadingId"].ToString();
+                notes.Value = dr["notes"].ToString();
+            }
+            else
+            {
+                ClearInputFields();
+            }
+        } //LoadInputFields()
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)
         {
@@ -270,6 +296,19 @@ namespace bepas
             } // if(page valid)
 
         } //addButton_Click()
+
+        private void ClearInputFields()
+        {
+            ddlSkylightOrientation.SelectedValue = "-1";
+            ddlSkylightType.SelectedValue = "-1";
+            numberOfSkylights.Text = String.Empty;
+            skylightLength.Text = String.Empty;
+            skylightWidth.Text = String.Empty;
+            ddlGlazing.SelectedValue = "-1";
+            ddlCoating.SelectedValue = "-1";
+            ddlExteriorShading.SelectedValue = "-1";
+            notes.Value = String.Empty;
+        }
 
     } //Webform
 } //namespace bepas
