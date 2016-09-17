@@ -154,8 +154,8 @@
                                         <asp:BoundField DataField="hvacIdByUser" HeaderText="HVAC ID" />
                                         <asp:BoundField DataField="hvacName" HeaderText="Name" />
                                         <asp:BoundField DataField="unitTypeText" HeaderText="Type" />
-                                        <asp:BoundField DataField="unitMake" HeaderText="Make" />
-                                        <asp:BoundField DataField="unitModel" HeaderText="Model" />
+                                        <asp:BoundField DataField="unitMake" HeaderText="Make / Model" />
+                                        <asp:BoundField DataField="serviceProvidedText" HeaderText="Service Provided" />
                                         <asp:TemplateField ShowHeader="False">
                                             <ItemTemplate>
                                                 <asp:Button ID="hvacSelectButton" runat="server" CausesValidation="false" CommandName="SelectHvac"
@@ -189,7 +189,7 @@
                 <div class="col-md-4">
                     <asp:DropDownList ID="ddlUnitType" runat="server" name="ddlUnitType" class="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
-            </div>            
+            </div>
 
             <!-- Text input-->
             <div class="form-group">
@@ -237,11 +237,11 @@
                 <div class="col-md-4">
                     <asp:DropDownList ID="ddlServiceProvided" runat="server" name="ddlServiceProvided" class="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
-            </div> 
-            
+            </div>
+
             <div class="form-group">
                 <h5 class="col-md-4 control-label"><strong>Cooling Information</strong></h5>
-            </div>             
+            </div>
 
             <!-- Dropdown -->
             <div class="form-group">
@@ -249,7 +249,7 @@
                 <div class="col-md-4">
                     <asp:DropDownList ID="ddlCondenserType" runat="server" name="ddlCondenserType" class="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
-            </div>  
+            </div>
 
             <!-- Text input-->
             <div class="form-group">
@@ -277,7 +277,7 @@
                 <div class="col-md-4">
                     <asp:DropDownList ID="ddlFuelType" runat="server" name="ddlFuelType" class="form-control" Style="width: auto"></asp:DropDownList>
                 </div>
-            </div> 
+            </div>
 
             <!-- Text input-->
             <div class="form-group">

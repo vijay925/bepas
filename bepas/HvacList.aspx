@@ -118,25 +118,23 @@
             <br />
             <br />
 
-
-            <asp:GridView ID="gvRoomList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
-                GridLines="None" AutoGenerateColumns="false" runat="server">
+            <asp:GridView ID="gvHvacList" UseAccessibleHeader="true" CssClass="table table-striped table-hover clearfix"
+                GridLines="None" AutoGenerateColumns="false" runat="server" >
                 <Columns>
-                    <asp:BoundField DataField="uid" HeaderText="Room ID" />
-                    <asp:BoundField DataField="roomIdByUser" HeaderText="Nickname" />
-                    <asp:BoundField DataField="roomName" HeaderText="Room Name" />
-                    <asp:BoundField DataField="roomTypeText" HeaderText="Type" />
-                    <asp:BoundField DataField="boxedShapeText" HeaderText="Boxed Shape" />
-                    <asp:BoundField DataField="totalSqFootage" HeaderText="Sq. Footage" />
+                    <asp:BoundField DataField="hvacIdByUser" HeaderText="HVAC ID" />
+                    <asp:BoundField DataField="hvacName" HeaderText="Name" />
+                    <asp:BoundField DataField="unitTypeText" HeaderText="Type" />
+                    <asp:BoundField DataField="unitMake" HeaderText="Make / Model" />
+                    <asp:BoundField DataField="serviceProvidedText" HeaderText="Service Provided" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActiveRoom"
+                            <asp:Button ID="activeButton" runat="server" CausesValidation="false" CommandName="ActiveHvac"
                                 Text="Active" CommandArgument='<%#Eval("uid")%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewRoom"
+                            <asp:Button ID="viewButton" runat="server" CausesValidation="false" CommandName="ViewHvac"
                                 Text="View/Edit" CommandArgument='<%#Eval("uid")%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -153,19 +151,7 @@
     <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $('#<%=gvRoomList.ClientID%>').DataTable({
-                "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
-                "pageLength": 5,
 
-                /*
-                "columns": [{ "sName": "uid" }, { "sName": "siteIdByUser" }, { "sName": "siteName" },
-                            { "sName": "surveyDate" }, { "sName": "contactName" }, { "sName": "city" },
-                            { "sName": "stateText" }],
-                */
-                "aoColumnDefs": [{ "visible": true, 'bSortable': false, "orderable": false, "searchable": false, 'aTargets': [-1, -2] }]
-            });
-        });
 
     </script>
 

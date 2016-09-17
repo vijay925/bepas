@@ -179,10 +179,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Window ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="windowId" CssClass="form-control" runat="server" placeholder="Window ID"></asp:TextBox>
+                    <asp:TextBox ID="windowId" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-md-2">
-                    <asp:TextBox ID="windowName" CssClass="form-control" runat="server" placeholder="Window Name"></asp:TextBox>
+                    <asp:TextBox ID="windowName" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
 

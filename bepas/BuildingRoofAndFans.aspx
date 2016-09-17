@@ -18,7 +18,7 @@
                     <asp:TextBox ID="siteId" CssClass="form-control" runat="server" placeholder="Site ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-2">
-                    <asp:TextBox ID="siteName" CssClass="form-control" runat="server" placeholder="Site Name"></asp:TextBox>
+                    <asp:TextBox ID="siteName" CssClass="form-control" runat="server" placeholder="Site Name" ReadOnly="true"></asp:TextBox>
                 </div>
                 <!-- site list button -->
                 <div class="col-md-4">
@@ -73,7 +73,7 @@
                     <asp:TextBox ID="buildingId" CssClass="form-control" runat="server" placeholder="Building ID" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-2">
-                    <asp:TextBox ID="buildingName" CssClass="form-control" runat="server" placeholder="Building Name"></asp:TextBox>
+                    <asp:TextBox ID="buildingName" CssClass="form-control" runat="server" placeholder="Building Name" ReadOnly="true"></asp:TextBox>
                 </div>
                 <div class="col-md-4">
                     <!-- Trigger the modal with a button -->

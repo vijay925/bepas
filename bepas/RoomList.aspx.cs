@@ -17,26 +17,8 @@ namespace bepas
             if (!this.IsPostBack)
             {
                 LoadSiteList();
-                LoadBuildingList(4);
-
             } //if
         }
-
-        private void LoadBuildingList(int siteUid)
-        {
-            DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
-            gvBuildingList.DataSource = dataSet;
-            gvBuildingList.DataBind();
-            //gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadBuildingList()
-
-        private void LoadRoomList(int buildingUid)
-        {
-            DataSet dataSet = GetDataUsingSp("spLoadRooms", "@buildingUid", buildingUid);
-            gvRoomList.DataSource = dataSet;
-            gvRoomList.DataBind();
-            //gvRoomList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadBuildingList()
 
         private void LoadSiteList()
         {
@@ -45,6 +27,22 @@ namespace bepas
             gvSiteList.DataBind();
             gvSiteList.HeaderRow.TableSection = TableRowSection.TableHeader;
         } //LoadSiteList()
+
+        private void LoadBuildingList(int siteUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
+            gvBuildingList.DataSource = dataSet;
+            gvBuildingList.DataBind();
+            gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadBuildingList()
+
+        private void LoadRoomList(int buildingUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadRooms", "@buildingUid", buildingUid);
+            gvRoomList.DataSource = dataSet;
+            gvRoomList.DataBind();
+            gvRoomList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadRoomList()
 
         protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {

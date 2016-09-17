@@ -18,7 +18,6 @@ namespace bepas
             {
                 LoadDropdownItems();
                 LoadSiteList();
-
             } //if
 
         } //Page_Load()
@@ -113,6 +112,14 @@ namespace bepas
             gvSiteList.HeaderRow.TableSection = TableRowSection.TableHeader;
         } //LoadSiteList()
 
+        private void LoadBuildingList(int siteUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
+            gvBuildingList.DataSource = dataSet;
+            gvBuildingList.DataBind();
+            gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadBuildingList()
+
         protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
             SuccessPanel.Visible = false;
@@ -130,15 +137,7 @@ namespace bepas
             siteId.Text = siteIdByUserLocal;
             siteName.Text = siteNameLocal;
             LoadBuildingList(Convert.ToInt32(siteUidLocal));
-        }
-
-        private void LoadBuildingList(int siteUid)
-        {
-            DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
-            gvBuildingList.DataSource = dataSet;
-            gvBuildingList.DataBind();
-            gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadBuildingList()
+        } //gvSiteListOnRowCommandSelect()
 
         protected void gvBuildingListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
@@ -154,7 +153,7 @@ namespace bepas
             buildingId.Text = buildingIdByUserLocal;
             buildingName.Text = buildingNameLocal;
             LoadInputFields(Convert.ToInt32(buildingUidLocal));
-        }
+        } //gvBuildingListOnRowCommandSelect()
 
         private void LoadInputFields(int buildingUid)
         {
@@ -212,7 +211,7 @@ namespace bepas
         protected void cancelButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~");
-        }
+        } //cancelButton_Click()
 
         protected void saveButton_Click(object sender, EventArgs e)
         {
@@ -265,7 +264,6 @@ namespace bepas
                 }
             } // if(page valid)
            
-            
         } //saveButton_Click()
 
         private void ClearInputFields()
@@ -285,6 +283,6 @@ namespace bepas
             ballastsPerFixture.Text = String.Empty;
             ddlFixtureControl.SelectedValue = "-1";
             notes.Value = String.Empty;
-        }
+        } //ClearInputFields()
     } //Webform
 } //namespace bepas

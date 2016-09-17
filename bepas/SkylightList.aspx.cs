@@ -56,8 +56,8 @@ namespace bepas
 
         protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
-            gvRoomList.DataSource = null;
-            gvRoomList.DataBind();
+            gvSkylightList.DataSource = null;
+            gvSkylightList.DataBind();
             buildingId.Text = String.Empty;
             buildingName.Text = String.Empty;
             roomId.Text = String.Empty;
@@ -77,6 +77,8 @@ namespace bepas
 
         protected void gvBuildingListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
+            gvSkylightList.DataSource = null;
+            gvSkylightList.DataBind();
             roomId.Text = String.Empty;
             roomName.Text = String.Empty;
             string[] argument = new string[3];

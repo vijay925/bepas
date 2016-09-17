@@ -17,26 +17,8 @@ namespace bepas
             if (!this.IsPostBack)
             {
                 LoadSiteList();
-                LoadBuildingList(4);
-
             } //if
         }
-
-        private void LoadBuildingList(int siteUid)
-        {
-            DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
-            gvBuildingList.DataSource = dataSet;
-            gvBuildingList.DataBind();
-            //gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadBuildingList()
-
-        private void LoadRoomList(int buildingUid)
-        {
-            DataSet dataSet = GetDataUsingSp("spLoadRooms", "@buildingUid", buildingUid);
-            gvRoomList.DataSource = dataSet;
-            gvRoomList.DataBind();
-            //gvRoomList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadBuildingList()
 
         private void LoadSiteList()
         {
@@ -46,10 +28,27 @@ namespace bepas
             gvSiteList.HeaderRow.TableSection = TableRowSection.TableHeader;
         } //LoadSiteList()
 
+        private void LoadBuildingList(int siteUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
+            gvBuildingList.DataSource = dataSet;
+            gvBuildingList.DataBind();
+            gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadBuildingList()
+
+        private void LoadHvacList(int buildingUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadHvacList", "@buildingUid", buildingUid);
+            gvHvacList.DataSource = dataSet;
+            gvHvacList.DataBind();
+            gvHvacList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadHvacList()
+
+
         protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
-            gvRoomList.DataSource = null;
-            gvRoomList.DataBind();
+            gvHvacList.DataSource = null;
+            gvHvacList.DataBind();
             buildingId.Text = String.Empty;
             buildingName.Text = String.Empty;
 
@@ -70,11 +69,14 @@ namespace bepas
             string[] argument = new string[3];
             argument = e.CommandArgument.ToString().Split(';');
 
-            string buildingUid = argument[0];
-            buildingId.Text = argument[1];
-            buildingName.Text = argument[2];
+            string buildingUidLocal = argument[0];
+            string buildingIdByUserLocal = argument[1];
+            string buildingNameLocal = argument[2];
 
-            LoadRoomList(Convert.ToInt32(buildingUid));
+            buildingId.Text = buildingIdByUserLocal;
+            buildingName.Text = buildingNameLocal;
+
+            LoadHvacList(Convert.ToInt32(buildingUidLocal));
         }
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)

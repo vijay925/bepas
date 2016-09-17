@@ -113,6 +113,22 @@ namespace bepas
             gvSiteList.HeaderRow.TableSection = TableRowSection.TableHeader;
         } //LoadSiteList()
 
+        private void LoadBuildingList(int siteUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
+            gvBuildingList.DataSource = dataSet;
+            gvBuildingList.DataBind();
+            gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadBuildingList()
+
+        private void LoadRoomList(int buildingUid)
+        {
+            DataSet dataSet = GetDataUsingSp("spLoadRoomList", "@buildingUid", buildingUid);
+            gvRoomList.DataSource = dataSet;
+            gvRoomList.DataBind();
+            gvRoomList.HeaderRow.TableSection = TableRowSection.TableHeader;
+        } //LoadBuildingList()
+
         protected void gvSiteListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
             SuccessPanel.Visible = false;
@@ -131,22 +147,6 @@ namespace bepas
             siteName.Text = siteNameLocal;
             LoadBuildingList(Convert.ToInt32(siteUidLocal));
         }
-
-        private void LoadBuildingList(int siteUid)
-        {
-            DataSet dataSet = GetDataUsingSp("spLoadBuildings", "@siteUid", siteUid);
-            gvBuildingList.DataSource = dataSet;
-            gvBuildingList.DataBind();
-            gvBuildingList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadBuildingList()
-
-        private void LoadRoomList(int buildingUid)
-        {
-            DataSet dataSet = GetDataUsingSp("spLoadRoomList", "@buildingUid", buildingUid);
-            gvRoomList.DataSource = dataSet;
-            gvRoomList.DataBind();
-            gvRoomList.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } //LoadBuildingList()
 
         protected void gvBuildingListOnRowCommandSelect(object sender, GridViewCommandEventArgs e)
         {
@@ -178,8 +178,6 @@ namespace bepas
             roomName.Text = roomNameLocal;
             LoadInputFields(Convert.ToInt32(roomUidLocal));
         }
-
-
 
         private void LoadInputFields(int roomUid)
         {

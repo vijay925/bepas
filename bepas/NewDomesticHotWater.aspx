@@ -179,10 +179,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Hot Water ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="waterId" CssClass="form-control" runat="server" placeholder="Water ID"></asp:TextBox>
+                    <asp:TextBox ID="waterId" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-md-2">
-                    <asp:TextBox ID="waterName" CssClass="form-control" runat="server" placeholder="Water Name"></asp:TextBox>
+                    <asp:TextBox ID="waterName" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
 

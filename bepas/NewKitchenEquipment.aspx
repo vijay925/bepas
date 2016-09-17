@@ -179,10 +179,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Equipment ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="equipmentId" CssClass="form-control" runat="server" placeholder="Equipment ID"></asp:TextBox>
+                    <asp:TextBox ID="equipmentId" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-md-2">
-                    <asp:TextBox ID="equipmentName" CssClass="form-control" runat="server" placeholder="Equipment Name"></asp:TextBox>
+                    <asp:TextBox ID="equipmentName" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
 

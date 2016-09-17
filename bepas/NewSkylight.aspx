@@ -179,10 +179,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Skylight ID / Name *</label>
                 <div class="col-md-2">
-                    <asp:TextBox ID="skylightId" CssClass="form-control" runat="server" placeholder="Skylight ID"></asp:TextBox>
+                    <asp:TextBox ID="skylightId" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-md-2">
-                    <asp:TextBox ID="skylightName" CssClass="form-control" runat="server" placeholder="Skylight Name"></asp:TextBox>
+                    <asp:TextBox ID="skylightName" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
 
