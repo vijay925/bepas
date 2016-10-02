@@ -177,7 +177,7 @@ namespace bepas
             string wateIdByUserLocal = argument[1];
             string waterNameLocal = argument[2];
 
-            ViewState["waterUidLocal"] = waterUidLocal;
+            ViewState["waterUid"] = waterUidLocal;
             waterId.Text = wateIdByUserLocal;
             waterName.Text = waterNameLocal;
 
@@ -255,10 +255,10 @@ namespace bepas
                 using (SqlCommand command = new SqlCommand())
                 {
                     int UserUid = 1;
-                    command.CommandText = "spInsertHotWater";
+                    command.CommandText = "spUpdateHotWater";
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Connection = connection;
-                    command.Parameters.AddWithValue("@roomUid", Convert.ToInt32(ViewState["roomUid"]));
+                    command.Parameters.AddWithValue("@waterUid", Convert.ToInt32(ViewState["waterUid"]));
                     command.Parameters.AddWithValue("@waterIdByUser", waterId.Text);
                     command.Parameters.AddWithValue("@waterName", waterName.Text);
                     command.Parameters.AddWithValue("@heaterTypeId", Convert.ToInt32(ddlHeaterType.SelectedValue));

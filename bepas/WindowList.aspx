@@ -205,8 +205,58 @@
     <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
 
     <script>
+        $(document).ready(function () {
+            $('#<%=gvSiteList.ClientID%>').DataTable({
+                "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+                "pageLength": 5,
+                "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [-1] }]
+            });
 
+            $('#<%=gvBuildingList.ClientID%>').DataTable({
+                "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+                "pageLength": 5,
+                "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [-1] }]
+            });
 
+            $('#<%=gvRoomList.ClientID%>').DataTable({
+                "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+                "pageLength": 5,
+                "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [-1] }]
+            });
+
+            $('#<%=gvWindowList.ClientID%>').DataTable({
+                "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+                "pageLength": 5,
+                "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [-1] }]
+            });
+
+            $('#siteListModal').on('show.bs.modal', function () {
+                $(this).find('.modal-dialog').css({
+                    height: 'auto',
+                    'min-width': '900px'
+                });
+                var dataTable = $('#<%=gvSiteList.ClientID%>').DataTable();
+                dataTable.columns.adjust().draw();
+            });
+
+            $('#buildingListModal').on('show.bs.modal', function () {
+                $(this).find('.modal-dialog').css({
+                    height: 'auto',
+                    'min-width': '900px'
+                });
+                var dataTable = $('#<%=gvSiteList.ClientID%>').DataTable();
+                dataTable.columns.adjust().draw();
+            });
+
+            $('#roomListModal').on('show.bs.modal', function () {
+                $(this).find('.modal-dialog').css({
+                    height: 'auto',
+                    'min-width': '900px'
+                });
+                var dataTable = $('#<%=gvSiteList.ClientID%>').DataTable();
+                dataTable.columns.adjust().draw();
+            });
+        });
     </script>
 
 

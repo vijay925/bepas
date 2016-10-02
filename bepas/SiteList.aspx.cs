@@ -18,6 +18,8 @@ namespace bepas
             {
                 LoadSiteList();
             } //if
+
+            gvSiteList.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         private void LoadSiteList()
@@ -25,7 +27,7 @@ namespace bepas
             DataSet dataSet = GetDataUsingSp("spLoadSites", null, null);
             gvSiteList.DataSource = dataSet;
             gvSiteList.DataBind();
-            gvSiteList.HeaderRow.TableSection = TableRowSection.TableHeader;
+            //gvSiteList.HeaderRow.TableSection = TableRowSection.TableHeader;
         } //LoadSiteList()
 
         private DataSet GetDataUsingSp(string spName, string spParameterName, object spParameter)

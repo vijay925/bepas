@@ -44,18 +44,12 @@
     <script>
         $(document).ready(function () {
             $('#<%=gvSiteList.ClientID%>').DataTable({
-                "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
-                "pageLength": 5,
-
-                /*
-                "columns": [{ "sName": "uid" }, { "sName": "siteIdByUser" }, { "sName": "siteName" },
-                            { "sName": "surveyDate" }, { "sName": "contactName" }, { "sName": "city" },
-                            { "sName": "stateText" }],
-                */
-                "aoColumnDefs": [{ "visible": true, 'bSortable': false, "orderable": false, "searchable": false, 'aTargets': [-1, -2] }],
-            });
+            "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+            "pageLength": 5,
+            "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [-1] }]
         });
 
+    });
     </script>
 
 

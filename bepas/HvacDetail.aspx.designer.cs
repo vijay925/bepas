@@ -256,13 +256,13 @@ namespace bepas {
         protected global::System.Web.UI.WebControls.FileUpload infoPlatePhoto;
         
         /// <summary>
-        /// addButton control.
+        /// saveButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addButton;
+        protected global::System.Web.UI.WebControls.Button saveButton;
         
         /// <summary>
         /// cancelButton control.

@@ -301,21 +301,11 @@
         </div>
     </div>
 
-
     <script>
         function HideLabel() {
             $('#<%= SuccessPanel.ClientID %>').slideUp();
         }
         setTimeout("HideLabel();", 2000);
     </script>
-
-
-
-
-
-
-
-
-
 
 </asp:Content>

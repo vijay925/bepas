@@ -322,7 +322,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submitButtons"></label>
                 <div class="col-md-8">
-                    <asp:Button ID="addButton" name="addButton" CssClass="btn btn-success" runat="server" Text="Add" OnClick="addButton_Click" />
+                    <asp:Button ID="saveButton" name="saveButton" CssClass="btn btn-success" runat="server" Text="Save" OnClick="saveButton_Click" />
                     <asp:Button ID="cancelButton" name="cancelButton" CssClass="btn btn-danger" runat="server" Text="Cancel" OnClick="cancelButton_Click" />
                 </div>
             </div>

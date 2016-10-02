@@ -185,7 +185,6 @@ namespace bepas
         {
             if (Page.IsValid) //checks validation again in case javascript disabled <-- havent tested this yet
             {
-
                 string connectionString = ConfigurationManager.ConnectionStrings["bepas"].ConnectionString;
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -193,10 +192,10 @@ namespace bepas
                 using (SqlCommand command = new SqlCommand())
                 {
                     int UserUid = 1;
-                    command.CommandText = "spInsertMiscInventory";
+                    command.CommandText = "spUpdateMiscInventory";
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Connection = connection;
-                    command.Parameters.AddWithValue("@roomUid", Convert.ToInt32(ViewState["roomUid"]));
+                    command.Parameters.AddWithValue("@inventoryUid", Convert.ToInt32(ViewState["inventoryUid"]));
                     //command.Parameters.AddWithValue("@name", name.Text);
                     command.Parameters.AddWithValue("@make", make.Text);
                     command.Parameters.AddWithValue("@model", model.Text);

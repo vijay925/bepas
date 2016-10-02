@@ -205,7 +205,7 @@ namespace bepas
             Response.Redirect("~");
         }
 
-        protected void addButton_Click(object sender, EventArgs e)
+        protected void saveButton_Click(object sender, EventArgs e)
         {
             if (Page.IsValid) //checks validation again in case javascript disabled <-- havent tested this yet
             {
